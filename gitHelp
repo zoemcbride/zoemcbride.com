@@ -1,0 +1,13 @@
+Git Help
+
+cd \Documents
+cd zoemcbride.com
+
+% ---- may need to write "git init" ---- %
+
+git add . 
+git commit -m "Message Here"
+git push 
+
+% ---- May need to do this, may not ---- %
+git push --set-upstream origin master
