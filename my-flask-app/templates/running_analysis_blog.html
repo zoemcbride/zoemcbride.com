@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+
+  <!-- zoemcbride.com website code -->
+
+  <body bgcolor = "#FFFFFF">
+    <h1>Running Analysis Using my Strava Data</h1>
+    <h4>September 2023</h4>
+
+    <!-- Before pushing, remove the word count !-->
+    <div class="reading-time"><i>Approximate word count {{word_count}} & reading time: {{ reading_time }} minute{{ 's' if reading_time != 1 else '' }}
+    </div></i></p>
+
+
+    
+    <h3>Intro & Motivation</h3>
+    <p class="opening-paragraph">
+      Being someone that loves to <b>run</b> and loves to <b>analyze data</b>, it only became all-too-obvious exercise to obtain my Strava data and go to town analyzing it. I have been running since highschool, where I was captains of both cross country and long-distance track, and mostly ran the 5K, 2-mile, or 1-mile. Since then, I mostly persued running on my own, though I was involved in several running clubs along the way, and made more than a few close friends through running. I did my first half marathon race in 2015, my second in 2019, and my third in 2022.  I also did a handful of 5K and 10K races along the way, and managed to get 3rd at the Rabbit Chase 5K Trail Race in 2023. In 2021, I started working with a running coach to take my running to another level. 
+
+      <p class="opening-paragraph">In this analysis, my goal was to analyze some of my historical strava data to glean insights about my training. I wanted to reflect on both my running "wins" and areas where I could improve. I had many questions to investigate, but to focus my study, I had three main areas of focus:
+        <ol>
+          <li>Mileage & time run per week</li>
+          <li>Influences on Heart Rate</li>
+          <li>Pace over time</li>
+        </ol>
+      </p>
+
+
+      <h3>Data Used</h3>
+      <p>
+        <ul>
+        <li>October 2018-August 2023 Activity Data from Strava</li>
+        <li>Strava data was collected via two different Garmin watches that I owned over the years:
+          <ul>
+          <li>Garmin Forerunner 265S March <i>[2023-August 2023]</i></li>
+          <li>Garmin Vivoactive 3 Music <i>[April 2019-March 2023]</i></li>
+          <li>Various iPhones <i>[October 2018-April 2019]</i></li>
+        </ul>
+        </li>
+      </ul>
+      For the purposes of this analysis, I treated the provided data equally. I would assume, however, that the latest and greatest Garmin Forerunner I purchased would have the most accurate readings.
+
+      </p>
+
+      <h3>Results</h3>
+
+      <p class="opening-paragraph"> In order to address the three areas of study, I addressed the following questions. </p>
+
+      <p>
+        <h5>Mileage & time run per week</h5>
+        <li>How many miles per week did I run on average?</li>
+        <li>How many hours a week did I spend running each year?</li></p>
+
+        <p>
+        First, to understand my weekly mileage distance, I grouped my data into weekly bins and summed across the weeks.  Since 2018 and 2023 were incomplete years, I focused on the four full years of data I had -- 2019 through 2022. </p>
+
+        <p>
+
+          <img src="{{ url_for('static', filename='images/averaged_weekly_miles_run.png') }}" alt="header_photo" class="center" style="
+          max-width: 360px;
+          max-height: 360px;
+          margin-left: auto;
+          margin-right: auto;
+          align-self: center;
+          display: block;
+          ">
+        </p>
+
+        Here you can see that my mileage increased fairly consistently year on year! This was cool to see, and certainly this is a clear and simple way to demonstrate my progress. In 2019, I was averaging just over 7 miles per week (mpw), whereas by 2022 I averaged over 16 miles per week (mpw). Particularly, when COVID hit in 2020, I took a bigger interest in running and this is reflected here with a 43% jump between 2019 and 2020. Weekly mileage increased by 36% between 2020 and 2021, and by 16% between 2021 and 2022. That slowdown in mileage buildup probably indicates something about what my "sweet spot" is for consistent, year-on-year running mileage. Using that information, I can speculate that I might do well with future low-season weeks slighlty below 16 mpw, whereas on-season training could build-up from there.
+
+      </p>
+
+      <p>
+        <img src="{{ url_for('static', filename='images/weekly_hours_run.png') }}" alt="header_photo" style="
+        max-width: 760px;
+        max-height: 760px;
+        width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        ">
+        In this graph, rather than looking purely at miles per week, I analyzed hours run per week to get a better understanding of how much time I am on my feet running. One thing that immediately surprised me is that, for an activity I find myself spending a lot of time thinking and talking about, it actually has only taken up approximately 2-6 hours per week over these last four years. Said another way, that is about ~5-15% of a typical work week. Of course, this data only shows moving time, meaning that any preparation (getting dressed, warming up, psyching myself up to head out the door), paused time (stop lights or water breaks), and post-run recovery (showering, snacking, etc) are not included here. And certainly, any other exercises - like strength exercises related to running - are not included here. Despite that, it is interesting to see how doing something a few hours a week can feel like such a big component of my day-to-day life. It goes to show how meaningful those handful of hours a week are to me. It also goes to show how a little bit of time can go a long way!
+      </p>
+      <p>
+        If I were to extend this analysis, I would be curious to see how many hours a week are spent doing other activities. For example, when I started working with a coach in 2021, she strongly encouraged me to do strength workouts each week, so I'd likely have another 45-60 minutes of strength exercise logged per week to support my running. Additionally, I've had phases with other sports, like yoga, hiking/backpacking, boxing, and cycling. All these are not accounted for here but have a positive impact on my overall fitness and potentially even an impact on my running fitness.
+      </p>
+
+
+      </p>
+
+      <p>
+        <h5>Influences on heart Rate</h5>
+        <li>How does pace influence heart rate?</li>
+        <li>How does the weather influence heart rate?</li>
+      </p>
+
+      <p>
+        <h5>Pace over time</h5>
+        <li>How did weekly mileage volume impact my pace? </li>
+        <li>Did my pace over time improve?</li>
+      </p>
+
+
+      <h3>Conclusions</h3>
+      <p>
+
+      </p>
+
+      <h3>Next Steps</h3>
+      <p></p>
+
+      {% endblock %}
