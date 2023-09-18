@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, current_app
 from my_flask_app.utils import calculate_reading_time, count_words  
 
 app = Flask(__name__, template_folder='templates')
@@ -20,8 +20,9 @@ def running_analysis_blog():
     # Specify the path relative to the template folder
     html_file_path = 'templates/running_analysis_blog.html'  # Adjust the path accordingly
 
+    # open(html_file_path, 'r')
     # Read the content of your running analysis blog post from the HTML file
-    with open(html_file_path, 'r') as blog_file:
+    with current_app.open_resource(html_file_path, 'r') as blog_file:
         blog_post_content = blog_file.read() # Note that this technically counts all words on the html file, including html coding
     
     # Calculate reading time using the calculate_reading_time function
