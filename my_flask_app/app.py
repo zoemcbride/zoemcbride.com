@@ -30,7 +30,9 @@ def running_analysis_blog():
     
     return render_template('running_analysis_blog.html', content=blog_post_content, word_count=count_words(blog_post_content), reading_time=reading_time_minutes)
 
-
+@app.route('/restaurant_recommendations.html')
+def restaurant_recommendations():
+    return render_template('restaurant_recommendations.html')
 
 
 if __name__ == '__main__':
