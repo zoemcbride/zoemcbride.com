@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.monospace {
+	font-family: Courier, "Inconsolata","Source Code Pro";
+}
+
+/*This is for the bolded text in the opening paragraph*/
+.opening-paragraph b { 
+	border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(136, 225, 108);
+}
+
+.opening-paragraph {
+	text-align: justify;
+}
+
+img {
+	border-radius: 10px;
+}
+

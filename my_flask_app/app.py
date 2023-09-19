@@ -1,5 +1,5 @@
 from flask import Flask, render_template, current_app
-from my_flask_app.utils import calculate_reading_time, count_words  
+from utils import calculate_reading_time, count_words  
 
 app = Flask(__name__, template_folder='templates')
 
