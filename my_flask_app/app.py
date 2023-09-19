@@ -11,11 +11,11 @@ app.debug = True
 def index():
     return render_template('index.html')
 
-@app.route('/side_projects')
+@app.route('/side_projects.html')
 def side_projects():
     return render_template('side_projects.html')
 
-@app.route('/running_analysis_blog')
+@app.route('/running_analysis_blog.html')
 def running_analysis_blog():
     # Specify the path relative to the template folder
     html_file_path = 'templates/running_analysis_blog.html'  # Adjust the path accordingly

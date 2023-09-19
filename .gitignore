@@ -1,0 +1,8 @@
+touch .gitignore
+
+vim .gitignore
+website-venv/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
