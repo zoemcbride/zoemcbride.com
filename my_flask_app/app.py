@@ -34,6 +34,10 @@ def running_analysis_blog():
 def restaurant_recommendations():
     return render_template('restaurant_recommendations.html')
 
+@app.route('/strava_analysis_howto.html')
+def strava_analysis_howto():
+    return render_template('strava_analysis_howto.html')
+
 
 if __name__ == '__main__':
     app.run()
