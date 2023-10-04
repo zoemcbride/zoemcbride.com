@@ -20,7 +20,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <![endif]-->
       <!-- load in Font Awesome icons -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -28,75 +28,103 @@
       <font face="Inconsolata" size="3">
 
 
-         <!-- Custom styles for this template -->
-         <link href="static/css/starter-template.css" rel="stylesheet">
+       <!-- Custom styles for this template -->
+       <link href="static/css/starter-template.css" rel="stylesheet">
 
-         <style type="text/css">  
-             /* Default styling for profile picture on larger screens, aligns image to the left */
-             #profile-pic {
-              height: auto;
-              width: 100%;
-              max-width: 300px;
-              max-height: 300px;
-              display: block;
-              margin-left: 5px;
-              margin-right: auto;
-              margin-bottom: 10px;
-              margin-top: 10px;
+       <!-- profile-pic-1 corresponds to 2019profilepic.JPG, profile-pic-2 corresponds to IMG_5385.jpg-->
+       <style type="text/css">  
+         /* Default styling for profile picture on larger screens, aligns image to the left */
+         #profile-pic-1 {
+          height: auto;
+          width: 100%;
+          max-width: 300px; 
+          max-height: 300px;
+          display: block;
+          margin-left: 5px;
+          margin-right: auto;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+
+        #profile-pic-2 {
+            height: auto;
+            width: 100%;
+            max-width: 403px; 
+            max-height: 302px;
+            display: block;
+            margin-left: 5px;
+            margin-right: auto;
+            margin-bottom: 10px;
+            margin-top: 10px;
           }
 
-          /* Media query for smaller screens */
-          @media (max-width: 768px) {
-              #profile-pic {
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-    </style>
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+          #profile-pic-1 {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          #profile-pic-2 {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          }
+        </style>
 
-</head>
+        <!--PrismJS CSS and JS files for inserting pretty code -->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>-->
+
+        <!--Highlight.js CSS and JS files -->  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
 
 
-<body>
-  <nav>
-    <!-- Your navbar content goes here -->
-    <nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">Zoë McBride</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">Home</a>
-          </li>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="side_projects.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Side Projects
-      </a>
-      <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="running_analysis_blog.html">Running Analysis Using my Strava Data</a></li>
-          <li><a class="dropdown-item" href="restaurant_recommendations.html">Restaurant Recommendations</a></li>
-          <li><a class="dropdown-item" href="#">Spotify Analysis - Coming Soon!</a></li>
-          <li><a class="dropdown-item" href="#">Energy Analysis - Coming Soon!</a></li>
-          <li><hr class="dropdown-divider"></li>  
-          <li><a class="dropdown-item" href="side_projects.html">All Projects</a></li>
-      </ul>
-  </li>
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="static/resume/2023-Resume-ZoeMcBride-Website.pdf">Resume</a>
-  </li>
-</li>
-</ul>
+
+      </head>
+
+
+      <body>
+        <nav>
+          <!-- Your navbar content goes here -->
+          <nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container">
+              <a class="navbar-brand" href="#">Zoë McBride</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                  </li>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="side_projects.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Side Projects
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="running_analysis_blog.html">Running Analysis Using my Strava Data</a></li>
+                    <li><a class="dropdown-item" href="restaurant_recommendations.html">Restaurant Recommendations</a></li>
+                    <li><a class="dropdown-item" href="strava_analysis_howto.html">How To Analyze Your Strava Data</a></li>
+                    <li><a class="dropdown-item" href="#">Spotify Analysis - Coming Soon!</a></li>
+                    <li><a class="dropdown-item" href="#">Energy Analysis - Coming Soon!</a></li>
+                    <li><hr class="dropdown-divider"></li>  
+                    <li><a class="dropdown-item" href="side_projects.html">All Projects</a></li>
+                  </ul>
+                </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="static/resume/2023-Resume-ZoeMcBride-Website.pdf">Resume</a>
+                  </li>
+                </li>
+              </ul>
       <!-- The following creates a search bar. <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>-->
-</div>
-</div>
+      </form>-->
+    </div>
+  </div>
 
 
 </nav>
@@ -126,8 +154,8 @@
 <body>
 
 <div class="container-fluid">
-  <div class="row"><img src = "static/images/header2020.png" alt="header_photo" height="100%" width="100%">
-  </div>
+  <!--<div class="row"><img src = "static/images/header2020.png" alt="header_photo" height="100%" width="100%">
+  </div>-->
 </div>
     
 
@@ -143,7 +171,7 @@
 <div class="container-fluid"> 
   <div class="row" style="margin-top:10px">
     <div class = "col-md-3 col-sm-12 align-items-start">
-      <img id="profile-pic" src="static/images/2019profilepic.JPG" alt= "profile_picture">
+      <img id="profile-pic-2" src="static/images/IMG_5385.jpg" alt= "profile_picture">
     </div>    
 
     <div class="col-md-9 col-sm-12 align-self-center">
@@ -213,9 +241,9 @@
   </body>
 
   
-  </div>
+    </div>
 
-</main>
+  </main>
 
  <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -226,6 +254,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
+
+  <!--Initialize Highlight.js -->
+  <body onload="hljs.highlightAll();">
 
 </body>
 </html>
