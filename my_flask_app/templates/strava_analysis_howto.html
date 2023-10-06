@@ -9,6 +9,8 @@
     <h1>How To Analyze <i>Your</i> Strava Data</h1>
     <p>
     So maybe you've read my blog where I analyzed my Strava running data and want to do the same. Or perhaps you've wanted to do some analysis on your Strava running data for a while now, but don't know where to start. Well, you've come to the right place! </p>   
+
+    Related: <a href="{{ url_for('running_analysis_blog') }}">Running Analysis Using my Strava Data</a>
     <p> 
     <ol>
       <li>Navigate to Strava's website (Browser edition)
@@ -20,7 +22,7 @@
           <li>Wait patiently! It took only a few hours to get my data from them.</li>
         </ol>
       </li>
-      <li>Visit my strava-running-analysis Github repository (repo) <a href="https://github.com/zoemcbride/strava-running-analysis">here</a>. Be sure to read the README file and check for the repo's status</li>
+      <li>Visit my strava-running-analysis Github repository (repo) <a href="https://github.com/zoemcbride/strava-running-analysis">here</a>. Be sure to read the README file and check for the repos status</li>
       <li>Make sure you have Git installed on your computer
         <ul>
           <li>If not, you can download it <a href="https://git-scm.com/downloads">here</a></li>
@@ -48,12 +50,25 @@
           <pre><code class="language-bash">cd strava-running-analysis</code></pre>
         </ul>
       </li>
+      <li>Create a virtual environment (my-venv) (Note: some users may find running 'python3' more explicit than just running 'python'):
+       <ul>
+       <pre><code class="language-bash">python -m venv my-venv</code></pre></li></ul>
+      <li>Source the virtual environment:
+        <ul>
+        <pre><code class="language-bash">source my-venv/bin/activate</code></pre></li></ul>
+      </li>
+      <li>Install the requirements:
+        <ul>
+      <pre><code class="language-bash">pip install -r requirements.txt</code></pre></ul>
+    </li>
       <li>Run the inputs.py script (Note: some users may find running 'python3' more explicit than just running 'python'):
         <ul>
           <pre><code class="language-bash">python inputs.py</code></pre>
         </ul>
       </li>
       <li>As the script starts, it will prompt you to enter information, such as the location of the activities.csv data from Strava</li>
+      <li>The script will load about 7 graphs sequentially -- you may need to close the graphs to move on to the next one, but they will be saved for you under the "output_graphs" folder</li>
+      <li>Enjoy!! :) </li>
 
     </ol>
 
