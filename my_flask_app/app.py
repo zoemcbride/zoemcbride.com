@@ -1,5 +1,7 @@
 from flask import Flask, render_template, current_app
-from utils import calculate_reading_time, count_words  
+from utils import calculate_reading_time, count_words 
+import json 
+import os
 
 app = Flask(__name__, template_folder='templates')
 
@@ -38,6 +40,16 @@ def restaurant_recommendations():
 def strava_analysis_howto():
     return render_template('strava_analysis_howto.html')
 
+# Construct an absolute path to the data directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BOOK_REVIEWS_DATA_FILE = os.path.join(BASE_DIR, 'data', 'book_reviews.json')
+
+with open(BOOK_REVIEWS_DATA_FILE, 'r') as f:
+    reviews = json.load(f)
+
+@app.route('/book_reviews.html')
+def book_reviews():
+    return render_template('book_reviews.html', reviews=reviews)
 
 if __name__ == '__main__':
     app.run()
