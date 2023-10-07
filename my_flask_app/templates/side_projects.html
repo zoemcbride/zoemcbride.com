@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+
+  <!-- zoemcbride.com website code -->
+
+    <h1>Side projects</h1>
+
+    <!-- The below will create three equal-width columns across all devices-->
+    <div class="container">
+      <div class="col">
+        <div class="row">
+          <a href="{{ url_for('running_analysis_blog') }}">Running Analysis Using my Strava Data</a>
+        </div>
+        <div class="row">
+          <a href="{{ url_for('strava_analysis_howto') }}">How To Analyze <i>Your</i> Strava Data</a>
+          </a>
+        </div>
+        <div class="row">
+          <a href="{{ url_for('restaurant_recommendations') }}">Restaurant Recommendations</a>
+        </div>
+        <div class="row"><a href="">
+          Spotify Analysis - Coming Soon!</a>
+        </div>
+        <div class="row"><a href="">
+          Energy Analysis - Coming Soon!</a>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
