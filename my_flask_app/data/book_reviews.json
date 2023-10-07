@@ -49,6 +49,20 @@
         "review_text": "I learned a lot from this book and found it to be a deeply emotional story about gender and parenthood. I was captivated till the very end. The characters were not always perfect, but it made the story feel all the more real."
     },
     {
+        "title": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen",
+        "author": "Christopher McDougall",
+        "rating": 3.5,
+        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1631519495i/6289283.jpg",
+        "review_text": "As a runner, I thought I would love this book. It definitely inspired me to go run more, and I was convinced by the overarching argument that humans are indeed born to run. However, some of the facts presented are shaky and inconsistent with modern science. I thought it leaned more on story-telling than on facts. Once you can recognize this, it becomes a fun and inspiring read."
+    },
+    {
+        "title": "The Very Nice Box",
+        "author": "Laura Blackett",
+        "rating": 5,
+        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1614098065i/54310999.jpg",
+        "review_text": "Really fun, quirky book - couldn’t put it down. Kept me engaged from the beginning!"
+    },
+    {
         "title": "The Vanishing Half",
         "author": "Brit Bennett",
         "rating": 5,
@@ -56,11 +70,18 @@
         "review_text": "Wow, such an incredibly moving story that completely captured my attention. I loved this book!"
     },
     {
-        "title": "Anxious People",
-        "author": "Fredrik Backman",
+        "title": "The Midnight Library",
+        "author": "Matt Haig",
         "rating": 5,
-        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597575031i/49127718.jpg",
-        "review_text": "Frederik Blackman did it again with another great book! I love this author. This story is not quite what you expect at the surface, but promises to provide witty insights on people in peculiar situations. It is a quick and delightful read."
+        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1602190253i/52578297.jpg",
+        "review_text": "Quirky, imaginative book about all the different life choices that we have as humans on this earth. Left me thinking about the ripple effects of small, sometimes seemingly innocuous, decisions."
+    },
+    {
+        "title": "The Seven Husbands of Evelyn Hugo",
+        "author": "Taylor Jenkins Reid",
+        "rating": 5,
+        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1664458703i/32620332.jpg",
+        "review_text": "This was such a fun read! This book feels like a romance, with breakpoints established for each of Evelyn's seven husbands, but it has so much more life to it than just that. This is the life story of a woman, who, though fictional, feels very real. Thoroughly enjoyed this!"
     },
     {
         "title": "Normal People",
@@ -70,17 +91,18 @@
         "review_text": "Well written, sweet romance about two people navigating through life together (and apart). This one is a page turner, and you’ll find yourself having a hard time putting it down."
     },
     {
+        "title": "Anxious People",
+        "author": "Fredrik Backman",
+        "rating": 5,
+        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597575031i/49127718.jpg",
+        "review_text": "Frederik Blackman did it again with another great book! I love this author. This story is not quite what you expect at the surface, but promises to provide witty insights on people in peculiar situations. It is a quick and delightful read."
+    },
+    {
         "title": "Maybe You Should Talk to Someone",
         "author": "Lori Gottlieb",
         "rating": 5,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1547189796i/37570546.jpg",
         "review_text": "Loved this book. Refreshingly real, and with a sense of humor that you wouldn’t expect!"
-    },
-    {
-        "title": "The Very Nice Box",
-        "author": "Laura Blackett",
-        "rating": 5,
-        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1614098065i/54310999.jpg",
-        "review_text": "Really fun, quirky book - couldn’t put it down. Kept me engaged from the beginning!"
     }
+    
 ]
