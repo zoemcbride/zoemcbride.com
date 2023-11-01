@@ -31,6 +31,8 @@
        <!-- Custom styles for this template -->
        <link href="static/css/starter-template.css" rel="stylesheet">
 
+       
+
        <!-- profile-pic-1 corresponds to 2019profilepic.JPG, profile-pic-2 corresponds to IMG_5385.jpg-->
        <style type="text/css">  
          /* Default styling for profile picture on larger screens, aligns image to the left */
@@ -79,13 +81,14 @@
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
 
-
+       <!-- Styles ive added, such as a sticky footer-->
+       <link rel="stylesheet" href="static/css/styles.css">   
 
         </head>
 
-
-        <body>
-          <nav>
+        <!-- Initialize body & Initialize Highlight.js -->
+        <body onload="hljs.highlightAll();">
+  
             <!-- Your navbar content goes here -->
             <nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
               <div class="container">
@@ -106,8 +109,8 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="running_analysis_blog.html">Running Analysis Using my Strava Data</a></li>
                       <li><a class="dropdown-item" href="strava_analysis_howto.html">How To Analyze <i>Your</i> Strava Data</a></li>
-                      <li><a class="dropdown-item" href="#">Spotify Analysis - Coming Soon!</a></li>
-                      <li><a class="dropdown-item" href="#">Energy Analysis - Coming Soon!</a></li>
+                      <li><a class="dropdown-item" href="energy_analysis_blog.html">Energy Analysis - Coming Soon!</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Spotify Analysis - Coming Soon!</a></li>-->
                       <li><hr class="dropdown-divider"></li>  
                       <li><a class="dropdown-item" href="side_projects.html">All Projects</a></li>
                     </ul>
@@ -121,31 +124,32 @@
                       <li><a class="dropdown-item" href="book_reviews.html">Book Reviews</a></li>
                     </ul>
                   </li>
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="static/resume/2023-Resume-ZoeMcBride-Website.pdf">Resume</a>
-                        </li>
-                      </li>
-                    </ul>
-      <!-- The following creates a search bar. <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>-->
-    </div>
-  </div>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="static/resume/2023-Resume-ZoeMcBride-Website.pdf">Resume</a>
+                    </li>
+                  </li>
+                </ul>
+<!-- The following creates a search bar. <form class="d-flex" role="search">
+<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<button class="btn btn-outline-success" type="submit">Search</button>
+</form>-->
+</div>
+</div>
+
 
 
 </nav>
-<body bgcolor = "#FFFFFF" style="padding-top: 0px">
 
-  <!-- Your header content goes here -->
-  <header>
 
-  </header>
+<!-- Your header content goes here -->
+<header>
 
-  <main>
-    <div class="container" style="padding-top: 40px">
-      
+</header>
+
+<main>
+  <div class="container" style="padding-top: 40px">
+    
 
 <body>
 
@@ -386,9 +390,47 @@
         async src="//gc.zgo.at/count.js"></script>
 
         
+  </div>
+
+</main>
+
+<footer class="footer py-3" style="background-color: #f7f7f7;">
+  <div class="container d-flex justify-content-center align-items-center flex-column text-center">
+    
+    <!-- Social Media Links -->
+    <div class="d-flex justify-content-center align-items-center mb-2">
+        <a href="https://www.linkedin.com/in/zoecamillemcbride/" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="mailto:zoe.camille7@gmail.com" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+        <a href="https://github.com/zoemcbride" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
     </div>
 
-  </main>
+    <!-- Made with Technologies -->
+    <small class="text-muted">Crafted by Zoë with Flask, GitHub Pages, Bootstrap & more</small>
+    <small class="text-muted">© 2023 Zoë Camille McBride</small>
+  </div>
+</footer>
+
+<!-- Additional CSS -->
+<style>
+    .footer .icon-link:hover {
+        color: #007BFF;  /* 007BFF Blue color on hover */
+    }
+
+    .footer .icon-link {
+        transition: color 0.2s, transform 0.2s;
+        color: #777;  /* 007BFF Default blue color of icons */
+    }
+</style>
+
+
+
+
 
  <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -400,8 +442,5 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
 
-  <!--Initialize Highlight.js -->
-  <body onload="hljs.highlightAll();">
 
-  </body>
   </html>

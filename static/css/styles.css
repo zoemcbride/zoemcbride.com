@@ -1,0 +1,19 @@
+html, body {
+    height: 100vh;
+}
+
+body {
+    background-color: #FFFFFF;
+    padding-top: 0px;
+    display: flex !important;
+    flex-direction: column;
+}
+
+main { /* You may need to adjust this selector to target your main content */
+    flex: 1 0 auto; /* This will allow the main content to grow */
+}
+
+footer {
+    margin-top: auto;
+    flex-shrink: 0 !important; /* This ensures that the footer doesn't shrink */
+}
