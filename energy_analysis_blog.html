@@ -109,7 +109,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="running_analysis_blog.html">Running Analysis Using my Strava Data</a></li>
                       <li><a class="dropdown-item" href="strava_analysis_howto.html">How To Analyze <i>Your</i> Strava Data</a></li>
-                      <li><a class="dropdown-item" href="energy_analysis_blog.html">Energy Analysis - Coming Soon!</a></li>
+                      <li><a class="dropdown-item" href="energy_analysis_blog.html">Time-Series Forecasting of the Spanish Energy Grid [WIP]</a></li>
                       <!--<li><a class="dropdown-item" href="#">Spotify Analysis - Coming Soon!</a></li>-->
                       <li><hr class="dropdown-divider"></li>  
                       <li><a class="dropdown-item" href="side_projects.html">All Projects</a></li>
@@ -156,12 +156,107 @@
   <!-- zoemcbride.com website code -->
 
   <body bgcolor = "#FFFFFF">
-    <h1>Analysis of the Spanish Energy Grid</h1>
+    <h1>Time-Series Forecasting of the Spanish Energy Grid</h1>
+
     <h4>October 2023</h4>
+    <div class="reading-time"><i>Approximate reading time: 2 minutes
+    </div></i></p>
+          
 
     [WIP] Follow along on <a href="https://github.com/zoemcbride/energy-data-lab">my Github repo</a>!
-
     <p><p><p>
+
+    <h3>Intro & Motivation</h3>
+    <p class="opening-paragraph">
+    My goal with this exercise was to work on my time-series forecasting skills. Particularly, I wanted to see if I could develop both a k-Nearest Neighbors (KNN) model and a Random Forest (RF) model to predict the load value on the grid at a particular point in time. </p>
+
+    <p class="opening-paragraph">
+    The data I had included the actual load value as well as the Spanish Transmission System Operator (TSO) best-in-class forecasted values. My objective was to compare both my KNN and my RF model against actual and the benchmarked TSO forecasts.</p>
+
+    <h3>Background</h3>
+    <p class="opening-paragraph">
+    When it comes to time-series forecasting in the energy space, models like KNN, RF, Autoregressive Integrated Moving Average (ARIMA), Seasonal ARIMA (SARIMA), Prophet, Long Short-Term Memory Networks (LSTMs) and XGBoost are common. However, KNN and RF are simpler and more lightweight than these other models, and thus a good place to start. </p>
+
+    <p class="opening-paragraph">KNN is a highly adaptable, lightweight model which adapts swiftly to new data patterns. RF on the other hand can be great for handling multiple features and also can give us a sense of the feature importance. When using a RF model, we can pinpoint the critical drivers of the energy load by using the feature importance output, and this can be a helpful tool in itself. </p>
+
+    <h3>Data Used</h3> 
+    <p class="opening-paragraph">
+      Data generally from <a href="https://www.kaggle.com/datasets/nicholasjhana/energy-consumption-generation-prices-and-weather/data">this Kaggle project</a>.</p>
+
+      <p class="opening-paragraph">
+      This dataset contains 4 years of electrical consumption, generation, pricing, and weather data for Spain. Consumption and generation data was retrieved from ENTSOE - a public portal for Transmission Service Operator (TSO) data. Settlement prices were obtained from the Spanish TSO Red Electric España. Weather data was purchased as part of a personal project from the Open Weather API for the 5 largest cities in Spain and made public.</p>
+
+      <div class='container' style='max-width:1200px; margin-left: 0; border: 2px solid rgb(136, 225, 108); border-radius: 15px;'>
+  <h5>Spanish Energy Data</h5>
+  <table style='width:100%; border-collapse: collapse; '>
+    <tr style='border-bottom: 2px solid rgb(136, 225, 108);'>
+    </tr>
+    <tr>
+      <td>Data was in hourly timestamps and spanned from 2015-2019</td>
+    </tr>
+    <tr>
+      <td>Energy sources (MW) were provided broken down by category, which I have grouped for simplicity:</td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li>Fossil Fuels (brown coal/lignite, coal-derived gas, gas, hard coal, oil, oil shale, fossil peat)</li>
+          <li>Hydro (pumped storage consumption, run-of-river poundage, water reservoir)</li>
+          <li>Wind & Solar (wind offshore, wind onshore, solar, other renewables)</li>
+          <li>Nuclear</li>
+          <li>Other (biomass, geothermal, marine, waste, other)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Other data streams included:</td>
+    </tr>
+    <tr>
+      <td>
+        <ul> 
+          <li>Load Forecasts from the TSO</li>
+          <li>Actual Load</li>
+          <li>Forecasted Day Ahead Price from the TSO</li>
+          <li>Actual Price</li>
+      </ul>
+    </td>
+    </tr>
+  </table>
+  <h5>Spanish Weather Data</h5>
+  <table style='width:100%; border-collapse: collapse; '>
+    <tr style='border-bottom: 2px solid rgb(136, 225, 108);'>
+    </tr>
+    <tr>
+      <td>Data for 5 Spanish cities (Valencia, Madrid, Bilbao, Barcelona, Seville) was provided in hourly timestamps and spanned from 2015-2019</td>
+    </tr>
+    <tr>
+      <td>Data streams included: 
+        <ul>
+        <li>Temperature (including minimum and maximum temperature)</li>
+        <li>Pressure</li>
+        <li>Humidity</li>
+        <li>Wind Speed (including wind direction)</li>
+        <li>Rainfall (including last hour, last three hours)</li>
+        <li>Snowfall (last three hours)</li>
+        <li>Cloud Coverage</li>
+        <li>Weather ID, Short Description, Long Description, Icon</li>
+      </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</p>
+
+    <h3>Exploratory Data Analysis Insights</h3>
+    <p class="opening-paragraph">
+
+    <h3>Results</h3>
+    <p class="opening-paragraph">
+
+    <h3>Conclusions</h3>
+    <p class="opening-paragraph">
 
 <script data-goatcounter="https://zoemcbride.goatcounter.com/count"
 async src="//gc.zgo.at/count.js"></script>
