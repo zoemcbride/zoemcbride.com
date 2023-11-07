@@ -14,7 +14,7 @@
     </div></i></p>
           
 
-    [WIP] Follow along on <a href="https://github.com/zoemcbride/energy-data-lab">my Github repo</a>!
+    Follow along on <a href="https://github.com/zoemcbride/energy-data-lab">my Github repo</a>!
     <p><p><p>
 
     <h3>Intro & Motivation</h3>
@@ -172,6 +172,7 @@
         <li>Season, derived from the month, one-hot encoded as true/false for each season</li>
         <li>Hour of the day, transformed using both sin(2pi*x) and cos(2pi*x) to indicate the cyclical nature of the hour feature</li>
         <li>Previous day load, scaled with a standard scalar</li>
+        <li>Spanish holiday binary, where 1 represents a holiday (such as Christmas on 12/25) and 0 represents no holiday</li>
       </ul>
       The target vector, of course, was the total actual load. The benchmarking vector was the total load forecasted by the TSO.
     </p>
@@ -184,7 +185,7 @@
 
 
     <h4>K-Nearest Neighbors (KNN)</h4>
-    <!--<img src="{{ url_for('static', filename='images/knn_nearestneighbors_rmse.png') }}" alt="KNN RMSE versus Number of Neighbors" class="center" style="
+    <img src="{{ url_for('static', filename='images/knn_nearestneighbors_rmse.png') }}" alt="KNN RMSE versus Number of Neighbors" class="center" style="
             max-width: 100%;
             max-height: 400px;
             margin-left: auto;
@@ -192,12 +193,12 @@
             align-self: center;
             display: block;
             ">
-    With KNN, the only real hyperparameter to play with is the number of neighbors (k). The above graph shows the root mean squared error (RMSE) plotted against the number of neighbors (k) across all five cross validation folds. As can be seen in the above graph, around k=40 the RMSE plateaus, suggesting that increasing k further will not significantly improve the model's performance. Thus, from here I calculate the final mean absolute error (MAE) and RMSE of our KNN model using k=40 against the test set. I can then similarly calculate the RMSE for the benchmark. Thus, the final numbers for my KNN model are:
+    With KNN, the only real hyperparameter to play with is the number of neighbors (k). The above graph shows the root mean squared error (RMSE) plotted against the number of neighbors (k) across all five cross validation folds. As can be seen in the above graph, around k=50 the RMSE plateaus, suggesting that increasing k further will not significantly improve the model's performance. Thus, from here I calculate the final mean absolute error (MAE) and RMSE of our KNN model using k=50 against the test set. I can then similarly calculate the RMSE for the benchmark. Thus, the final numbers for my KNN model are:
     <ul>
-      <li>My KNN Model RMSE: 2553.0 MW</li>
+      <li>My KNN Model RMSE: 2538.92 MW</li>
       <li>Benchmark RMSE: 378.28 MW</li>
 
-      <li>My kNN model's RMSE is around 8.89% of the mean load value.</li>
+      <li>My kNN model's RMSE is around 8.84% of the mean load value.</li>
       <li>The benchmark's RMSE is around 1.32% of the mean load value.</li>
     </ul>
 
@@ -213,11 +214,10 @@
     
     <p class="opening-paragraph">Overall, while my KNN model could certainly be improved upon, it seems to capture the overall trend and shape of the load effectively.  However, it struggles with the magnitude, generally underpredicting (though occasionally overpredicting) the peak load values. </p>
 
-    -->    
 
     <h4>Random Forest (RF)</h4>
-    <!--
-    <p class="opening-paragraph"></p>
+    
+    
     <img src="{{ url_for('static', filename='images/rf_numbertrees_rmse.png') }}" alt="RF RMSE versus Number of Trees" class="center" style="
             max-width: 100%;
             max-height: 400px;
@@ -226,16 +226,19 @@
             align-self: center;
             display: block;
             ">
-    With RF, there are several hyperparameters you can tune. To start, I looked into the number of trees. The above graph shows the root mean squared error (RMSE) plotted against the number of trees (n_estimators) across all five cross validation folds. As can be seen in the above graph, around n_estimators=200 the RMSE plateaus, suggesting that increasing the number of trees further will not significantly improve the model's performance. Thus, from here I calculate the final mean absolute error (MAE) and RMSE of our RF model using n_estimators=200 against the test set. I can then similarly calculate the RMSE for the benchmark. Thus, the final numbers for my RF model are:
+
+    <p class="opening-paragraph">With RF, there are several hyperparameters you can tune. To start, I looked into the number of trees. The above graph shows the root mean squared error (RMSE) plotted against the number of trees (n_estimators) across all five cross validation folds for one iteration of my RF model. As can be seen in the above graph, around n_estimators = 200 to 250 the RMSE plateaus, suggesting that increasing the number of trees further will not significantly improve the model's performance. From here, I then evaluated two other hyperparameters -- maximum depth of the trees and maximum number of features to include -- to further improve the performance of the RF model.  After hyperparameter tuning, I determined the best model had 250 trees with a maximum depth of 10 and maximum number of features of 5.  The max depth parameter controls the maximum number of levels in each decision tree; limiting depth can prevent overfitting by reducing the complexity of the model. Conversely, too shallow trees might not capture sufficient complexity, leading to underfitting. The max features parameter determines how many features each tree is allowed to try to split on at each node, and setting this can help ensure that trees in the ensemble are diverse, which often improves model performance due to the ensemble capturing a wider array of patterns in the data.</p>
+     
+     <p class="opening-paragraph">Next, I can calculate the final RMSE of our RF model using 250 trees of maximum depth of 10 and 5 features against the test set. I can then similarly calculate the RMSE for the benchmark. Thus, the final numbers for my RF model are:
     <ul>
-      <li>My RF Model RMSE: 2547.61 MW</li>
+      <li>My RF Model RMSE: 2452.98 MW</li>
       <li>Benchmark RMSE: 378.28 MW</li>
 
-      <li>My RF model's RMSE is around 8.87% of the mean load value.</li>
+      <li>My RF model's RMSE is around 8.54% of the mean load value.</li>
       <li>The benchmark's RMSE is around 1.32% of the mean load value.</li>
     </ul>
 
-    And below, a snapshot of my RF model (in green) compared to the benchmark (in red) and the actuals (in blue): </p>          
+    And below, a snapshot of my final RF model (in green) compared to the benchmark (in red) and the actuals (in blue): </p>          
     <img src="{{ url_for('static', filename='images/rf_benchmark_actuals_graph.png') }}" alt="RF vs Benchmark vs Actuals Graph" class="center" style="
             max-width: 100%;
             max-height: 400px;
@@ -245,8 +248,10 @@
             display: block;
             ">
     
-    <p class="opening-paragraph">Upon visual inspection of the RF model's predictions, it seems to capture the overall trend and shape of the load effectively. However, it struggles with the magnitude, both underpredicting and sometimes overpredicting the peak load values, similar to the KNN model. It is also a bit more "jaggedy" than it needs to be at times. I am wondering if this could be due to overfitting, ie that it is capturing too much noise in the training data, rather than an underlying trend. Additionally, both the KNN and RF models tend to over- and under-predict at similar points in time, which is interesting.</p> 
-  -->
+    <p class="opening-paragraph">Upon visual inspection of the RF model's predictions, it seems to capture the overall trend and shape of the load effectively. However, it struggles with the magnitude, both underpredicting and sometimes overpredicting the peak load values, similar to the KNN model. It is also a bit more "jaggedy" than it needs to be at times. Additionally, both the KNN and RF models tend to over- and under-predict at similar points in time, which is interesting. I explored the under- and over-predicting tendency further, and found that at the higher load values, my model underpredicts, but that at lower load values, my model overpredicts. </p>
+
+    <p class="opening-paragraph">Finally, when investigating the residual between my RF model and the actual load data, I found that the largest errors happened on a very peculiar day, June 2, 2018. In fact, 12 of the 20 "worst" predictions occured on this day. Upon further research, I found that Pedro Sanchez was sworn into office as the Prime Minister of Spain on this day (he is still the PM of Spain as of this writing). On June 2, 2018, the grid load peaked at around 40,000 MW, which is significantly higher than a the mean and median of the grid load, which are 28,000 MW. My model significantly underpredicts the load that day, and frankly, the impact of a new PM on the grid could not have been appropriately anticipated. This is a fascinating finding, but also one that I could not have expected my model to capture. </p>   
+  
 
     <!--<img src="{{ url_for('static', filename='images/rf_feature_importance.png') }}" alt="RF Feature Importance" class="center" style="
             max-width: 100%;
@@ -258,7 +263,11 @@
             ">-->
 
     <h3>Conclusions</h3>
-    <p class="opening-paragraph"></p>
+    <p class="opening-paragraph">In conclusion, my RF model achieves an RMSE of 2452.98 MW, which is about 8.54% of the mean load value, indicating a reasonably good fit to the load pattern despite not being flawless. Compared to the KNN model, the RF model is more accurate by 86 MW, or 0.3% of the mean load. A notable observation is the performance on June 2, 2018, when a significant deviation occurred due to the unforeseen event of a new Prime Minister being sworn in, underscoring the model's limitations in accounting for such events. On the other hand, the KNN model, while slightly less accurate with an RMSE of 2538.92 MW, offers a faster alternative, suitable for scenarios where speed is of the essence. </p>
+
+    <p class="opening-paragraph">As for future improvements, exploring a suite of sophisticated time-series forecasting methods like ARIMA, SARIMA, Prophet, LSTMs, or XGBoost stands as the logical next step, aiming to inch closer to the benchmark RMSE of 378.28 MW, which only represents about 1.32% of the mean load value. Fine-tuning the feature matrix could also unlock further potential; for instance, tweaking the previous day's load scaling or incorporating predictive scheduling elements like future election dates may provide additional predictive leverage. </p>
+
+    <p class="opening-paragraph">Overall, I am content with my model's performance. However, the journey towards optimization is an ongoing process, and with more time dedicated to testing and iteration, I am optimistic that an even more precise model is within reach.</p>
 
 <script data-goatcounter="https://zoemcbride.goatcounter.com/count"
 async src="//gc.zgo.at/count.js"></script>
