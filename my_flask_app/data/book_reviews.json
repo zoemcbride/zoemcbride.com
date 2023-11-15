@@ -1,8 +1,22 @@
 [
     {
+        "title": "Lessons in Chemistry",
+        "author": "Bonnie Garmus",
+        "rating": 5,
+        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1634748496i/58065033.jpg",
+        "review_text": "The first 50-100 pages seemed a bit slow... and then suddenly I could not put down this book. Taking place in the 1950s and 60s, the protagonist, Elizabeth Zott, brazenly pushes back on the status quo and sexism around her as both a chemist and a rower. While many things have improved since then, some of the experiences are still relevant today, making this a poignant read. Despite that, there is an air of light-hearted humor too. I laughed and cried while reading this!"
+    },
+    {
+        "title": "Carrie Soto Is Back",
+        "author": "Taylor Jenkins Reid",
+        "rating": 4,
+        "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1649848581i/60435878.jpg",
+        "review_text": "Having never really played tennis, I was not sure if I'd relate to this story about a tennis champion but I've always been a fan of TJR so I thought I'd pick it up. Despite that the book revolves around tennis, I could relate to the protagonist's desire for athleticism and her determination. Her conquest to triumph as she ages is inspiring and she is a strong heroine. If anything, now I feel inspired to learn more about tennis and give it a try. Was a fun read!"
+    },
+    {
         "title": "I'm Glad My Mom Died",
         "author": "Jennette McCurdy",
-        "rating": 5,
+        "rating": 4,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1649228846i/59366244.jpg",
         "review_text": "I'm not one to pick up autobiographies or biographies very often, but McCurdy really lays it all out there in such a vulnerable and open way with this one that it's hard to walk away not feeling like you've learned something through her story. She does a fabulous job evolving the writing style as she ages throughout the book."
     },
@@ -16,7 +30,7 @@
     {
         "title": "The Three Lives of Alix St Pierre",
         "author": "Natasha Lester",
-        "rating": 4,
+        "rating": 3,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1649116754i/59543964.jpg",
         "review_text": "Really interesting plot, though occasionally a bit confusing to keep up with. I really enjoyed that the author made a point to incorporate many historical details - obviously relating to WW2 but also relating to post-war Paris and the Maison de Dior. Was a fun read! "
     },
@@ -25,21 +39,21 @@
         "author": "Laura Dave",
         "rating": 4,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1603034599i/54981009.jpg",
-        "review_text": "Read this book in less than a week -- quite an easy read and the mystery element keeps you engaged. Being a Californian, I loved the backdrop and could picture many of the scenes so well in my mind. The story is compelling and it was a fun read."
+        "review_text": "Read this book in less than a week -- quite an easy read and the mystery element keeps you engaged. Being a Californian, I loved the California backdrop and could picture many of the scenes so well in my mind. The story is compelling and it was a fun read."
     },
     {
         "title": "My Year of Rest and Relaxation",
         "author": "Ottessa Moshfegh",
-        "rating": 4,
+        "rating": 3,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597676656i/44279110.jpg",
         "review_text": "This book was certainly different. Has some interesting points around wealth, art, drugs, and what it means to rest. Disturbing and dark."
     },
     {
         "title": "Nightbitch",
         "author": "Rachel Yoder",
-        "rating": 4,
+        "rating": 3,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1612737468i/55835474.jpg",
-        "review_text": "A strange yet enticing book. Thought provoking and enjoyable read, if at times a little disorienting and sad."
+        "review_text": "A strange yet enticing book. Thought provoking and enjoyable read, if at times a little disorienting and sad. Be warned, some scenes were incredibly intense and upsetting."
     },
     {
         "title": "Detransition, Baby",
@@ -51,7 +65,7 @@
     {
         "title": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen",
         "author": "Christopher McDougall",
-        "rating": 3.5,
+        "rating": 2,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1631519495i/6289283.jpg",
         "review_text": "As a runner, I thought I would love this book. It definitely inspired me to go run more, and I was convinced by the overarching argument that humans are indeed born to run. However, some of the facts presented are shaky and inconsistent with modern science. I thought it leaned more on story-telling than on facts. Once you can recognize this, it becomes a fun and inspiring read."
     },
@@ -67,7 +81,7 @@
         "author": "Brit Bennett",
         "rating": 5,
         "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1577090827l/51791252.jpg",
-        "review_text": "Wow, such an incredibly moving story that completely captured my attention. I loved this book!"
+        "review_text": "Wow, such an incredibly moving story following the parallel, but completely different lives, of these two sisters who ultimately assume different racial identities. It completely captured my attention. I loved this book!"
     },
     {
         "title": "The Midnight Library",
