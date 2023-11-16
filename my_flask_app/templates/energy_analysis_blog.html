@@ -250,6 +250,18 @@
     
     <p class="opening-paragraph">Upon visual inspection of the RF model's predictions, it seems to capture the overall trend and shape of the load effectively. However, it struggles with the magnitude, both underpredicting and sometimes overpredicting the peak load values, similar to the KNN model. It is also a bit more "jaggedy" than it needs to be at times. Additionally, both the KNN and RF models tend to over- and under-predict at similar points in time, which is interesting. I explored the under- and over-predicting tendency further, and found that at the higher load values, my model underpredicts, but that at lower load values, my model overpredicts. </p>
 
+    
+    <p class="opening-paragraph">I found that on the first day of prediction (day 0), my model has a much smaller error -- the error for that day is only 2.43% of the mean load value, or 697 MW. This suggests that my model might do a better job at predicting the grid load over a 24 hour horizon. The below chart shows how error increased from day 0 through day 4 in my model compared to the benchmark's model. However, I did also note that this trend does not continue after day 4 -- and in fact, the error fluctuates dramatically after day 4 --  indicating that further studies would need to be conducted to see if indeed my model better predicts over 24 hour horizons versus longer duration horizons.</p>
+
+    <img src="{{ url_for('static', filename='images/rf_benchmark_rmse_day0.png') }}" alt="RF vs Benchmark RMSE for Day Zero through Four" class="center" style="
+            max-width: 100%;
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            align-self: center;
+            display: block;
+            ">
+
     <p class="opening-paragraph">Finally, when investigating the residual between my RF model and the actual load data, I found that the largest errors happened on a very peculiar day, June 2, 2018. In fact, 12 of the 20 "worst" predictions occured on this day. Upon further research, I found that Pedro Sanchez was sworn into office as the Prime Minister of Spain on this day (he is still the PM of Spain as of this writing). On June 2, 2018, the grid load peaked at around 40,000 MW, which is significantly higher than a the mean and median of the grid load, which are 28,000 MW. My model significantly underpredicts the load that day, and frankly, the impact of a new PM on the grid could not have been appropriately anticipated. This is a fascinating finding, but also one that I could not have expected my model to capture. </p>   
   
 
@@ -265,7 +277,7 @@
     <h3>Conclusions</h3>
     <p class="opening-paragraph">In conclusion, my RF model achieves an RMSE of 2452.98 MW, which is about 8.54% of the mean load value, indicating a reasonably good fit to the load pattern despite not being flawless. Compared to the KNN model, the RF model is more accurate by 86 MW, or 0.3% of the mean load. A notable observation is the performance on June 2, 2018, when a significant deviation occurred due to the unforeseen event of a new Prime Minister being sworn in, underscoring the model's limitations in accounting for such events. On the other hand, the KNN model, while slightly less accurate with an RMSE of 2538.92 MW, offers a faster alternative, suitable for scenarios where speed is of the essence. </p>
 
-    <p class="opening-paragraph">As for future improvements, exploring a suite of sophisticated time-series forecasting methods like ARIMA, SARIMA, Prophet, LSTMs, or XGBoost stands as the logical next step, aiming to inch closer to the benchmark RMSE of 378.28 MW, which only represents about 1.32% of the mean load value. Fine-tuning the feature matrix could also unlock further potential; for instance, tweaking the previous day's load scaling or incorporating predictive scheduling elements like future election dates may provide additional predictive leverage. </p>
+    <p class="opening-paragraph">As for future improvements, exploring a suite of sophisticated time-series forecasting methods like ARIMA, SARIMA, Prophet, LSTMs, or XGBoost stands as the logical next step, aiming to inch closer to the benchmark RMSE of 378.28 MW, which only represents about 1.32% of the mean load value. Fine-tuning the feature matrix could also unlock further potential; for instance, tweaking the previous day's load scaling or incorporating predictive scheduling elements like future election dates may provide additional predictive leverage. Finally, studying different time horizons could prove to be an interesting approach for understanding how the model performs best.</p>
 
     <p class="opening-paragraph">Overall, I am content with my model's performance. However, the journey towards optimization is an ongoing process, and with more time dedicated to testing and iteration, I am optimistic that an even more precise model is within reach.</p>
 
