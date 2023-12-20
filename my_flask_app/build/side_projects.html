@@ -21,7 +21,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <![endif]-->
       <!-- load in Font Awesome icons -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -29,94 +29,134 @@
       <font face="Inconsolata" size="3">
 
 
-         <!-- Custom styles for this template -->
-         <link href="static/css/starter-template.css" rel="stylesheet">
+       <!-- Custom styles for this template -->
+       <link href="static/css/starter-template.css" rel="stylesheet">
 
-         <style type="text/css">  
-             /* Default styling for profile picture on larger screens, aligns image to the left */
-             #profile-pic {
-              height: auto;
-              width: 100%;
-              max-width: 300px;
-              max-height: 300px;
-              display: block;
-              margin-left: 5px;
-              margin-right: auto;
-              margin-bottom: 10px;
-              margin-top: 10px;
-          }
+       
 
-          /* Media query for smaller screens */
-          @media (max-width: 768px) {
-              #profile-pic {
-                margin-left: auto;
-                margin-right: auto;
-            }
+       <!-- profile-pic-1 corresponds to 2019profilepic.JPG, profile-pic-2 corresponds to IMG_5385.jpg-->
+       <style type="text/css">  
+         /* Default styling for profile picture on larger screens, aligns image to the left */
+         #profile-pic-1 {
+          height: auto;
+          width: 100%;
+          max-width: 300px; 
+          max-height: 300px;
+          display: block;
+          margin-left: 5px;
+          margin-right: auto;
+          margin-bottom: 10px;
+          margin-top: 10px;
         }
-    </style>
 
-</head>
+        #profile-pic-2 {
+          height: auto;
+          width: 100%;
+          max-width: 403px; 
+          max-height: 302px;
+          display: block;
+          margin-left: 5px;
+          margin-right: auto;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
 
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+          #profile-pic-1 {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          #profile-pic-2 {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      </style>
 
-<body>
-  <nav>
-    <!-- Your navbar content goes here -->
-    <nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">Zoë McBride</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">Home</a>
-          </li>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="side_projects.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Side Projects
-      </a>
-      <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="running_analysis_blog.html">Running Analysis Using my Strava Data</a></li>
-          <li><a class="dropdown-item" href="restaurant_recommendations.html">Restaurant Recommendations</a></li>
-          <li><a class="dropdown-item" href="#">Spotify Analysis - Coming Soon!</a></li>
-          <li><a class="dropdown-item" href="#">Energy Analysis - Coming Soon!</a></li>
-          <li><hr class="dropdown-divider"></li>  
-          <li><a class="dropdown-item" href="side_projects.html">All Projects</a></li>
-      </ul>
-  </li>
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="static/resume/2023-Resume-ZoeMcBride-Website.pdf">Resume</a>
-  </li>
-</li>
-</ul>
-      <!-- The following creates a search bar. <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>-->
+      <!--PrismJS CSS and JS files for inserting pretty code -->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>-->
+
+          <!--Highlight.js CSS and JS files -->  
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+
+       <!-- Styles ive added, such as a sticky footer-->
+       <link rel="stylesheet" href="static/css/styles.css">   
+
+        </head>
+
+        <!-- Initialize body & Initialize Highlight.js -->
+        <body onload="hljs.highlightAll();">
+  
+            <!-- Your navbar content goes here -->
+            <nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+              <div class="container">
+                <a class="navbar-brand" href="#">Zoë McBride</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="side_projects.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Technical Projects 👩‍💻
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="running_analysis_blog.html">Running Analysis Using my Strava Data</a></li>
+                      <li><a class="dropdown-item" href="strava_analysis_howto.html">How To Analyze <i>Your</i> Strava Data</a></li>
+                      <li><a class="dropdown-item" href="energy_analysis_blog.html">Time-Series Forecasting of the Spanish Energy Grid</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Spotify Analysis - Coming Soon!</a></li>-->
+                      <li><hr class="dropdown-divider"></li>  
+                      <li><a class="dropdown-item" href="side_projects.html">All Projects</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="side_projects.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Off the Clock ⏰
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="restaurant_recommendations.html">Restaurant Recommendations</a></li>
+                      <li><a class="dropdown-item" href="book_reviews.html">Book Reviews</a></li>
+                    </ul>
+                  </li>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="static/resume/2023-Resume-ZoeMcBride-Website.pdf">Resume</a>
+                    </li>
+                  </li>
+                </ul>
+<!-- The following creates a search bar. <form class="d-flex" role="search">
+<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<button class="btn btn-outline-success" type="submit">Search</button>
+</form>-->
 </div>
 </div>
+
 
 
 </nav>
-<body bgcolor = "#FFFFFF" style="padding-top: 0px">
 
-  <!-- Your header content goes here -->
-  <header>
 
-  </header>
+<!-- Your header content goes here -->
+<header>
 
-  <main>
-    <div class="container" style="padding-top: 40px">
-      
+</header>
+
+<main>
+  <div class="container" style="padding-top: 40px">
+    
 
 <body>
 
   <!-- zoemcbride.com website code -->
 
-    <h1>Side projects</h1>
+    <h1>All Technical Projects</h1>
 
     <!-- The below will create three equal-width columns across all devices-->
     <div class="container">
@@ -125,21 +165,60 @@
           <a href="running_analysis_blog.html">Running Analysis Using my Strava Data</a>
         </div>
         <div class="row">
-          <a href="restaurant_recommendations.html">Restaurant Recommendations</a>
+          <a href="strava_analysis_howto.html">How To Analyze <i>Your</i> Strava Data</a>
+          </a>
         </div>
-        <div class="row"><a href="">
+        <div class="row"><a href="energy_analysis_blog.html">
+          Time-Series Forecasting of the Spanish Energy Grid</a>
+        </div>
+        <!--<div class="row"><a href="">
           Spotify Analysis - Coming Soon!</a>
-        </div>
-        <div class="row"><a href="">
-          Energy Analysis - Coming Soon!</a>
-        </div>
+        </div>-->
       </div>
     </div>
-
+    <p>
     
   </div>
 
 </main>
+
+<footer class="footer py-3" style="background-color: #f7f7f7;">
+  <div class="container d-flex justify-content-center align-items-center flex-column text-center">
+    
+    <!-- Social Media Links -->
+    <div class="d-flex justify-content-center align-items-center mb-2">
+        <a href="https://www.linkedin.com/in/zoecamillemcbride/" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="mailto:zoe.camille7@gmail.com" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+        <a href="https://github.com/zoemcbride" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+    </div>
+
+    <!-- Made with Technologies -->
+    <small class="text-muted">Crafted by Zoë with Flask, GitHub Pages, Bootstrap & more</small>
+    <small class="text-muted">© 2023 Zoë Camille McBride</small>
+  </div>
+</footer>
+
+<!-- Additional CSS -->
+<style>
+    .footer .icon-link:hover {
+        color: #007BFF;  /* 007BFF Blue color on hover */
+    }
+
+    .footer .icon-link {
+        transition: color 0.2s, transform 0.2s;
+        color: #777;  /* 007BFF Default blue color of icons */
+    }
+</style>
+
+
+
+
 
  <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -151,5 +230,5 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
 
-</body>
-</html>
+
+  </html>
