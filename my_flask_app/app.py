@@ -66,6 +66,21 @@ def energy_analysis_blog():
     
     return render_template('energy_analysis_blog.html', content=blog_post_content, word_count=count_words(blog_post_content), reading_time=reading_time_minutes)
 
+@app.route('/battery_optimization.html')
+def battery_optimization():
+
+    # Specify the path relative to the template folder
+    html_file_path = 'templates/battery_optimization.html'  # Adjust the path accordingly
+
+    # open(html_file_path, 'r')
+    # Read the content of your running analysis blog post from the HTML file
+    with current_app.open_resource(html_file_path, 'r') as blog_file:
+        blog_post_content = blog_file.read() # Note that this technically counts all words on the html file, including html coding
+    
+    # Calculate reading time using the calculate_reading_time function
+    reading_time_minutes = calculate_reading_time(blog_post_content)
+
+    return render_template('battery_optimization.html', content=blog_post_content, word_count=count_words(blog_post_content), reading_time=reading_time_minutes)
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+
+  <!-- zoemcbride.com website code -->
+
+  <h1>Simulation of Energy Storage Systems - Mixed Integer Linear Program [WIP]</h1>
+  <p>
+  <h4>January 2024</h4>
+  <div class="reading-time"><i>Approximate reading time: {{ reading_time }} minute{{ 's' if reading_time != 1 else '' }}
+  </div></i></p>
+
+
+  Follow along on <a href="https://github.com/zoemcbride/energy-data-lab">my Github repo</a>!
+  <p><p><p>
+
+  <h3>Intro & Motivation</h3>
+  <p class="opening-paragraph">My goal with this exercise was to deepen my understanding and refine my skills in simulating and optimizing battery energy storage systems. Particularly, I wanted to explore the PuLP python package and use it to develop a robust mixed integer linear program. My objective was to create a simulation for a battery energy storage system that is working behind-the-meter with a building load and responds to grid dynamic pricing over a 24 hour period. In this, I hope to demonstrate my understanding of mixed integer linear programs and the basic physics and engineering principles related to energy systems.
+
+  <h3>Background</h3>
+  <p class="opening-paragraph">Linear programming is a mathematical method used to find the best possible outcome, like the maximum profit or the lowest cost, for systems whos requirements are represented by linear relationships. In this case, I am minimizing the cost of energy for a building across a 24 hour period. When some of the variables are not continuous, but rather are binary, it adds a layer of complexity to the model known as mixed integer linear programming (MILP). The PuLP python package allows us to model these binary constraints, which make the problem non-convex and also potentially significantly more challenging to solve computationally. 
+
+  <p class="opening-paragraph">In the world of energy storage, MILP becomes particularly powerful, because energy systems operate in a world that has both continuous variables like facility load and also binary variables like the decision to charge or discharge the battery at a given point in time. Typically, these behind-the-meter battery systems have to optimize based on energy prices, demand charges, and load requirements, and MILP allows us to simulate these systems in a way that mirrors real-life decisions. 
+
+
+  <h3>Data Used</h3> 
+  <p class="opening-paragraph">
+  <!--Data Source: Mention the origin of your sample data (if it's publicly sourced, a reference would be great).
+Data Overview: Briefly describe the nature of the data (e.g., load profiles, energy costs) and why it's crucial for your simulation.-->
+
+
+  <h3>Formulation</h3>
+  <p class="opening-paragraph"><!--Mathematical Formulation: Present the core equations or logic in a concise manner. Use visual aids like formulas or diagrams if necessary.
+Transition to Code: Explain how the mathematical model translates into your BatteryOptimizationModel() class and the use of PuLP.-->
+
+  <h3>Methodology</h3>
+  <p class="opening-paragraph"><!--Simulation Setup: Describe how you generate sample data, set input parameters, and configure your simulation environment.
+Execution Flow: Outline the process from input through the optimization to obtaining the results.-->
+
+  <h3>Results</h3>
+  <p class="opening-paragraph"><!--Visualizations: Include key plots that show the simulation results, such as the storage system's response over 24 hours.
+Analysis: Provide commentary on what the results indicate, any patterns observed, and their implications.-->
+
+  <h3>Conclusions</h3>
+  <p class="opening-paragraph"><!--Summary of Findings: Recap the main outcomes of your simulation and their significance.
+Future Work: Discuss potential improvements, additional features, or other research questions that could be explored based on your work.-->
+
+{% endblock %}
