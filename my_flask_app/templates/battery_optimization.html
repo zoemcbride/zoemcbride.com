@@ -26,9 +26,26 @@
 
 
   <h3>Data Used</h3> 
-  <p class="opening-paragraph">
-  <!--Data Source: Mention the origin of your sample data (if it's publicly sourced, a reference would be great).
-Data Overview: Briefly describe the nature of the data (e.g., load profiles, energy costs) and why it's crucial for your simulation.-->
+  <p class="opening-paragraph">To set up this simulation, I first created sample building load data and then I set up the daily cost profile. For the building load data, I assumed that the building follows a typical commercial building load shape, with low demand in the late evening and early morning, but high demand from 12 PM - 5 PM. You can see the load curve here:
+
+    <img src="{{ url_for('static', filename='images/load_data_daily.png') }}" alt="Sample Load Data for One Day" class="center" style="
+        max-width: 100%;
+        max-height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+        display: block;
+        ">
+      <p class="opening-paragraph">Then, I created a sample tariff which, though not based on an actual tariff, is similar to tariffs you might find in California and other US states. In this tariff, the peak period, when the costs are greatest, is from 4 PM - 9 PM, and the partial peak period is three hours before and three hours after. All other hours are considered off peak hours. The demand costs for this tariff can be seen here: 
+        <img src="{{ url_for('static', filename='images/demand_costs_daily.png') }}" alt="Sample Demand Costs for One Day" class="center" style="
+        max-width: 100%;
+        max-height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+        display: block;
+        ">
+      <p class="opening-paragraph">You'll notice that the on-peak period for the tariff occurs at a time when the building still has a relatively high demand load. The battery system will need to determine a good time to charge and then discharge based on these two profiles, subject to a number of physical constraints.  
 
 
   <h3>Formulation</h3>
@@ -36,7 +53,7 @@ Data Overview: Briefly describe the nature of the data (e.g., load profiles, ene
 Transition to Code: Explain how the mathematical model translates into your BatteryOptimizationModel() class and the use of PuLP.-->
 
   <h3>Methodology</h3>
-  <p class="opening-paragraph"><!--Simulation Setup: Describe how you generate sample data, set input parameters, and configure your simulation environment.
+  <p class="opening-paragraph"><!--Simulation Setup: Describe how input parameters are created, objectives and constraints formulated, and configure your simulation environment.
 Execution Flow: Outline the process from input through the optimization to obtaining the results.-->
 
   <h3>Results</h3>
