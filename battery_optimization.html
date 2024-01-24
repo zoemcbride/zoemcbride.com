@@ -155,183 +155,46 @@
 
   <!-- zoemcbride.com website code -->
 
-  <body bgcolor = "#FFFFFF">
-    <h1>Restaurant Recommendations</h1>
-  
+  <h1>Simulation of Energy Storage Systems - Mixed Integer Linear Program [WIP]</h1>
+  <p>
+  <h4>January 2024</h4>
+  <div class="reading-time"><i>Approximate reading time: 2 minutes
+  </div></i></p>
 
 
-    <p class="opening-paragraph">
-      Perhaps some relevant context: I am a vegetarian 🥕. Having said that, below are some favorites of mine that I would recommend to any of my friends though. I will try to limit to a handful restaurants or fewer per city in order to highlight my top recommendations!
-    </p>
-    
-    <h3>California, USA</h3>
-    <h4>San Francisco</h4>
-    <p class="opening-paragraph">
-      <ol>
-        <li><a href="https://www.burmalove.co/">Burma Love</a></li>
-        This is the place to go to for an upscale Burmese meal. Their tea leaf salad is to die for, and they have really great curries too. Bring a few friends and grab drinks while you wait for the food to come out!
-      </p>
-      <li><a href="https://taduethiopiankitchen.com/home-house-of-tadu/">House of Tadu</a></li>
-      This is the place to go to for a casual, scrumptious and wholesome Ethiopian meal. Incredibly vegetarian friendly. Good prices too!
-    </p>
-      <li><a href="https://sfeltoro.com/">El Toro Taqueria</a></li>
-      This is the place to go to for the grilled veggie burrito. Anyone who has spent time in the Mission will have an opinion one way or the other about their favorite burrito place. El Toro is undoubtedly mine. I like to add cheese, lime, spinach and lime juice to my burrito.
-    </p>
-      <li><a href="https://www.thecavaliersf.com/">The Cavalier</a></li>
-      This is the place to go to for a decadent British meal. Definitely save this for a special occasion. The mashed potatoes are around $12 for the side dish, but absolutely worth every penny.
-    </p>
-  </ol>
+  Follow along on <a href="https://github.com/zoemcbride/energy-data-lab">my Github repo</a>!
+  <p><p><p>
 
-  <h4>Los Angeles</h4>
+  <h3>Intro & Motivation</h3>
+  <p class="opening-paragraph">My goal with this exercise was to deepen my understanding and refine my skills in simulating and optimizing battery energy storage systems. Particularly, I wanted to explore the PuLP python package and use it to develop a robust mixed integer linear program. My objective was to create a simulation for a battery energy storage system that is working behind-the-meter with a building load and responds to grid dynamic pricing over a 24 hour period. In this, I hope to demonstrate my understanding of mixed integer linear programs and the basic physics and engineering principles related to energy systems.
+
+  <h3>Background</h3>
+  <p class="opening-paragraph">Linear programming is a mathematical method used to find the best possible outcome, like the maximum profit or the lowest cost, for systems whos requirements are represented by linear relationships. In this case, I am minimizing the cost of energy for a building across a 24 hour period. When some of the variables are not continuous, but rather are binary, it adds a layer of complexity to the model known as mixed integer linear programming (MILP). The PuLP python package allows us to model these binary constraints, which make the problem non-convex and also potentially significantly more challenging to solve computationally. 
+
+  <p class="opening-paragraph">In the world of energy storage, MILP becomes particularly powerful, because energy systems operate in a world that has both continuous variables like facility load and also binary variables like the decision to charge or discharge the battery at a given point in time. Typically, these behind-the-meter battery systems have to optimize based on energy prices, demand charges, and load requirements, and MILP allows us to simulate these systems in a way that mirrors real-life decisions. 
+
+
+  <h3>Data Used</h3> 
   <p class="opening-paragraph">
-    <ol>
-      <li><a href="https://graciasmadre.com/location-west-hollywood">Gracias Madre</a></li>
-      This is the place to go to for vegan Mexican cuisine and margaritas. It is also a place to be seen. Dress up and have a fun time here!
-    </p>
-    <li><a href="https://order.bcdeli.com/">Bay Cities Italian Deli</a></li>
-    This is the place to go to for a big sandwich to take to the beach or for a hike. Really fresh and made to order. You can order online (I've never tried this), but if you walk in expect to wait a bit. You'll need to grab a number and make your custom order. Cash or debit only.
-  </p>
-      <li><a href="https://www.ilfornocaffe.com/?gclid=CjwKCAjwjaWoBhAmEiwAXz8DBebP6gw-Cf1TXLVPU0zczQLkGbsW2uKY6GJqFERpMmvX5uybLXYD1RoCLBoQAvD_BwE">Il Forno</a></li>
-    This is the place to go to for a no-frills Italian meal served with a smile. The restuarant has been a local establishment for years. Though I prefer to go for dinner, if you go at lunch, you may see some local celebrities. No promises though!
-  </p>
-  <li><a href="https://www.habayitrestaurant.com/">Habayit</a></li>
-    This is the place to go to fool yourself that you have travelled to Tel Aviv for lunch. Their delicious, authentic falafel and sabich pita sandwiches are to die for. Come by and practice a few words of Hebrew, but remember that they close early on Friday for Shabbat!
-  </p>
-</ol>
-
-<!--<h3>Israel</h3>
-<h4>Tel Aviv</h4>
-<p class="opening-paragraph">
-    <ol>
-      <li><a href="https://graciasmadre.com/location-west-hollywood">Restaurant</a></li>
-      This is the place to go to for ..
-    </p>
-    <li><a href="https://order.bcdeli.com/">Restauarant</a></li>
-    This is the place to go to for ...
-  </p>
-      <li><a href="https://www.ilfornocaffe.com/?gclid=CjwKCAjwjaWoBhAmEiwAXz8DBebP6gw-Cf1TXLVPU0zczQLkGbsW2uKY6GJqFERpMmvX5uybLXYD1RoCLBoQAvD_BwE">Il Forno</a></li>
-    This is the place to go to for ...
-  </p>
-</ol> -->
-
-<h3>India</h3>
-  <h4>Delhi</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="https://maps.app.goo.gl/fDj3Et6JYprFDfhcA">Amritsari Lassi</a></li>
-      This is the place to go to for a classic lassi in Old Delhi. Despite being at a food stand, it is safe to drink and incredibly refreshing on a hot day.
-    </p>
-    <li><a href="https://www.naivedyamrestaurants.in/">Naivedyam</a></li>
-    This is the place to go to for a delicious South Indian meal. Every kind of dosa imaginable. We went to their Hauz Khas Village location. Really tasty!
-  </p>
-    <li><a href="http://www.thebigchillonline.com/">Big Chill</a></li>
-    This is the place to go to for a homely Italian meal.  This one is a recommendation passed to me from a friend!
-  </p>
-    <li><a href="https://maps.app.goo.gl/kM2Zyvk8g2CFKHbE7">Klap</a></li>
-    This is the place to go to for tapas fusion food. It's a meal you will not forget, and the menu is incredibly vast! We had such a hard time deciding what to order here with so many great choices.
-  </p>
-  </ol>
-  <h4>Jaipur</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="https://tapri.net/#_">Tapri Central</a></li>
-      This is the place to go to for a budget-friendly, knock-your-socks off delicious Indian lunch and tea. Our tuk-tuk driver & friend recommended this place to us and it was clearly a local spot. You won't regret going here!
-    </p>
-    <li><a href="https://www.theforrestakitchenbar.com/">The Forresta Kitchen & Bar</a></li>
-    This is the place to go to for a little AC and some good refreshing beers in the afternoon. Or if the weather is pleasant, they have a great outdoor space too.
-  </p>
-      <li><a href="https://rainbow-multi-cuisine-restaurant.business.site/?utm_source=gmb&utm_medium=referral">Rainbow Restaurant</a></li>
-    This is the place to go to for thali! A good lunch option on the way back from the Jal Mahal or Amber Palace.
-  </p>
-        <li><a href="https://www.roasterycoffee.co.in/">Roastery Coffee House</a></li>
-    This is the place to go to for your caffeine fix and maybe even a snack or lunch. Really yummy & tempting sweets, as well as comfortable AC for a hot day. They have some cool nooks to hang out in throughout the cafe. 
-  </p>
-  </ol>
-
-  <h3>Nepal</h3>
-  <h4>Kathmandu</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="https://maps.app.goo.gl/hEjvcnQSn5eqxpEH6">Vera Pizza</a></li>
-      This is the place to go to for pizza that could be made in Rome. Seriously, this pizza was so good we went twice. 
-    </p>
-    <li><a href="https://maps.app.goo.gl/eKFdpuhmG1DAZhvHA">OR2K</a></li>
-    This is the place to go to for your Israeli fix! A wide selection of healthy and scrumptious options, and solid Wi-Fi, if you want to hang a while. They ask you take your shoes off and you sit on the floor. Very cozy feeling.
-  </p>
-  </ol>
-  <h3>Taiwan</h3>
-  <h4>Taipei</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="https://maps.app.goo.gl/Dpkt15Y7p6zLrsAY7">Veggienius</a></li>
-      This is the place to go to for an incredibly satisfying vegetarian Taiwanese meal! The whole menu is vegetarian, making this a safe haven for me. We ordered way too many dishes and did not regret it. Getting a reservation is a good idea here, if you can.
-    </p>
-    <li><a href="https://maps.app.goo.gl/LvKqhCnhPG5fKL7k7">Machi Machi</a></li>
-    This is the place to go to for a delightful boba pick-me-up. Recommend adding the baked dango on top - you won't regret it! 
-  </p>
-  <li><a href="https://maps.app.goo.gl/Lv58AosnY9xFtF1j7">Herbivore</a></li>
-    This is the place to go to for a variety of vegetarian dishes from all cuisines. Very fresh and scrumptious!
-  </p>
-  <li><a href="https://maps.app.goo.gl/VvcxmgxPTsnBdgZ27">Cantina del Gio</a></li>
-    This is the place to go to for impeccable service and delicious Italian food. The staff practically made us customized dishes and each dish was exquisite -- particularly, the gnocchi.  
-  </p>
-  <li><a href="https://maps.app.goo.gl/2iHXuB78NcemEKnQ9">Wanderlust Bar & Cafe</a></li>
-    This is the place to go to for a delicious late-night cocktail. 
-  </p>
-  </ol>
-<!--
-<h3>Bali, Indonesia</h3>
-  <h4>Ubud</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="">Restaurant 1</a></li>
-      This is the place to go to for...
-    </p>
-    <li><a href="">Restaurant 2</a></li>
-    This is the place to go to for...
-  </p>
-  </ol>
-  <h4>Permuteran</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="">Restaurant 1</a></li>
-      This is the place to go to for...
-    </p>
-    <li><a href="">Restaurant 2</a></li>
-    This is the place to go to for...
-  </p>
-  </ol>
-
-<h3>Malaysia</h3>
-  <h4>Kuala Lumpur</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="">Restaurant 1</a></li>
-      This is the place to go to for...
-    </p>
-    <li><a href="">Restaurant 2</a></li>
-    This is the place to go to for...
-  </p>
-  </ol>
-  <h4>Ipoh</h4>
-  <p class="opening-paragraph">
-    <ol>
-      <li><a href="">Restaurant 1</a></li>
-      This is the place to go to for...
-    </p>
-    <li><a href="">Restaurant 2</a></li>
-    This is the place to go to for...
-  </p>
-  </ol>
+  <!--Data Source: Mention the origin of your sample data (if it's publicly sourced, a reference would be great).
+Data Overview: Briefly describe the nature of the data (e.g., load profiles, energy costs) and why it's crucial for your simulation.-->
 
 
+  <h3>Formulation</h3>
+  <p class="opening-paragraph"><!--Mathematical Formulation: Present the core equations or logic in a concise manner. Use visual aids like formulas or diagrams if necessary.
+Transition to Code: Explain how the mathematical model translates into your BatteryOptimizationModel() class and the use of PuLP.-->
 
+  <h3>Methodology</h3>
+  <p class="opening-paragraph"><!--Simulation Setup: Describe how you generate sample data, set input parameters, and configure your simulation environment.
+Execution Flow: Outline the process from input through the optimization to obtaining the results.-->
 
--->
+  <h3>Results</h3>
+  <p class="opening-paragraph"><!--Visualizations: Include key plots that show the simulation results, such as the storage system's response over 24 hours.
+Analysis: Provide commentary on what the results indicate, any patterns observed, and their implications.-->
 
-
-<script data-goatcounter="https://zoemcbride.goatcounter.com/count"
-async src="//gc.zgo.at/count.js"></script>
+  <h3>Conclusions</h3>
+  <p class="opening-paragraph"><!--Summary of Findings: Recap the main outcomes of your simulation and their significance.
+Future Work: Discuss potential improvements, additional features, or other research questions that could be explored based on your work.-->
 
 
   </div>
