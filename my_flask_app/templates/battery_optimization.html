@@ -49,7 +49,62 @@
 
 
   <h3>Formulation</h3>
-  <p class="opening-paragraph"><!--Mathematical Formulation: Present the core equations or logic in a concise manner. Use visual aids like formulas or diagrams if necessary.
+  <p class="opening-paragraph">
+    <div class="container">
+    <div class="section">
+      <p class="title">Decision Variables</p>
+      <div class="content">
+        <ul>
+          <li><strong>C<sub>t</sub></strong>: the amount of energy (MWh) charged in hour t</li>
+          <li><strong>D<sub>t</sub></strong>: the amount of energy (MWh) discharged in hour t</li>
+          <li><strong>SOC<sub>t</sub></strong>: the amount of energy (MWh) available in the battery in hour t</li>
+          <li><strong>Grid<sub>t</sub></strong>: the amount of energy (MWh) drawn from the grid in hour t</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title">Parameters</p>
+      <div class="content">
+        <ul>
+          <li><strong>ESS_CAPACITY</strong>: the maximum battery capacity in MWh</li>
+          <li><strong>ESS_CHARGE_RATE</strong>: the maximum battery charge rate in MW</li>
+          <li><strong>ESS_DISCHARGE_RATE</strong>: the maximum battery discharge rate in MW</li>
+          <li><strong>RTE</strong>: the round trip efficiency of the battery in percent (%)</li>
+          <li><strong>demand<sub>t</sub></strong><!--or <strong>demand_mw</strong>-->: the demand of the load at hour t (MWh)</li>
+          <li><strong>price<sub>t</sub></strong><!--or <strong>cost_mw</strong>-->: the cost of the energy at hour t ($/MWh)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title">Constraints</p>
+      <div class="content">
+        <ul>
+          <li>0 ≤ SOC<sub>t</sub> ≤ ESS_CAPACITY for t from 0-24</li>
+          <li>0 ≤ C<sub>t</sub> ≤ ESS_CHARGE_RATE</li>
+          <li>0 ≤ D<sub>t</sub> ≤ ESS_DISCHARGE_RATE</li>
+          <li>D<sub>t</sub> ≤ SOC<sub>t</sub></li>
+          <li>SOC<sub>t</sub> = SOC<sub>t-1</sub> + C<sub>t</sub> - D<sub>t</sub>/RTE (accounting for RTE losses) for t from 0-24</li>
+          <li>D<sub>t</sub> + grid<sub>t</sub> ≥ demand<sub>t</sub></li>
+          <li>SOC<sub>0</sub> = 0 initial boundary condition</li>
+          <li>grid<sub>t</sub> = max(demand<sub>t</sub> - D<sub>t</sub>, 0)</li>
+          <li>D<sub>t</sub> * C<sub>t</sub> = 0 (*Note that I model this differently using binary decision variables, see below)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title">Objective</p>
+      <div class="content">
+        <p>
+    Minimize the cost of energy:
+    <span class="math-function">min</span>
+    <span class="math-expression">
+        ∑ (grid<sub>t</sub> × price<sub>t</sub>) for t from 0 to 24
+    </span>
+    </p>
+      </div>
+    </div>
+  </div>
+    <!--Mathematical Formulation: Present the core equations or logic in a concise manner. Use visual aids like formulas or diagrams if necessary.
 Transition to Code: Explain how the mathematical model translates into your BatteryOptimizationModel() class and the use of PuLP.-->
 
   <h3>Methodology</h3>
