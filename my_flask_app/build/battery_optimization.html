@@ -158,7 +158,7 @@
   <h1>Simulation of Energy Storage Systems - Mixed Integer Linear Program [WIP]</h1>
   <p>
   <h4>January 2024</h4>
-  <div class="reading-time"><i>Approximate reading time: 2 minutes
+  <div class="reading-time"><i>Approximate reading time: 4 minutes
   </div></i></p>
 
 
@@ -198,8 +198,67 @@
 
 
   <h3>Formulation</h3>
-  <p class="opening-paragraph"><!--Mathematical Formulation: Present the core equations or logic in a concise manner. Use visual aids like formulas or diagrams if necessary.
-Transition to Code: Explain how the mathematical model translates into your BatteryOptimizationModel() class and the use of PuLP.-->
+  <p class="opening-paragraph">
+    <div class="container">
+    <div class="section">
+      <p class="title">Decision Variables</p>
+      <div class="content">
+        <ul>
+          <li><strong>C<sub>t</sub></strong>: the amount of energy (MWh) charged in hour t</li>
+          <li><strong>D<sub>t</sub></strong>: the amount of energy (MWh) discharged in hour t</li>
+          <li><strong>SOC<sub>t</sub></strong>: the amount of energy (MWh) available in the battery in hour t</li>
+          <li><strong>Grid<sub>t</sub></strong>: the amount of energy (MWh) drawn from the grid in hour t</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title">Parameters</p>
+      <div class="content">
+        <ul>
+          <li><strong>ESS_CAPACITY</strong>: the maximum battery capacity in MWh</li>
+          <li><strong>ESS_CHARGE_RATE</strong>: the maximum battery charge rate in MW</li>
+          <li><strong>ESS_DISCHARGE_RATE</strong>: the maximum battery discharge rate in MW</li>
+          <li><strong>RTE</strong>: the round trip efficiency of the battery in percent (%)</li>
+          <li><strong>demand<sub>t</sub></strong><!--or <strong>demand_mw</strong>-->: the demand of the load at hour t (MWh)</li>
+          <li><strong>price<sub>t</sub></strong><!--or <strong>cost_mw</strong>-->: the cost of the energy at hour t ($/MWh)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title">Constraints</p>
+      <div class="content">
+        <ul>
+          <li>0 ≤ SOC<sub>t</sub> ≤ ESS_CAPACITY for t from 0-24</li>
+          <li>0 ≤ C<sub>t</sub> ≤ ESS_CHARGE_RATE</li>
+          <li>0 ≤ D<sub>t</sub> ≤ ESS_DISCHARGE_RATE</li>
+          <li>D<sub>t</sub> ≤ SOC<sub>t</sub></li>
+          <li>SOC<sub>t</sub> = SOC<sub>t-1</sub> + C<sub>t</sub> - D<sub>t</sub>/RTE (accounting for RTE losses) for t from 0-24</li>
+          <li>D<sub>t</sub> + grid<sub>t</sub> ≥ demand<sub>t</sub></li>
+          <li>SOC<sub>0</sub> = 0 initial boundary condition</li>
+          <li>grid<sub>t</sub> = max(demand<sub>t</sub> - D<sub>t</sub>, 0)</li>
+          <li>D<sub>t</sub> * C<sub>t</sub> = 0 (*Note that I model this differently using binary decision variables, see below)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title">Objective</p>
+      <div class="content">
+        <p>
+    Minimize the cost of energy:
+    <span class="math-function">min</span>
+    <span class="math-expression">
+        ∑ (grid<sub>t</sub> × price<sub>t</sub>) for t from 0 to 24
+    </span>
+    </p>
+      </div>
+    </div>
+  </div>
+  <p class="opening-paragraph">
+    The mathematical equations outlined above are translated into a computational model using PuLP. This translation is encapsulated within the <code class="language-python">BatteryOptimizationModel()</code> class. The class is initialized with the <code class="language-python">__init__</code> function, which sets up the model environment and parameters. The optimization process is executed by the <code class="language-python">run_optimization</code> function, which not only runs the optimization given the load and cost profiles but also checks the status of the optimization to ensure it runs successfully. 
+</p>
+<p class="opening-paragraph">
+    The decision variables are defined in the <code class="language-python">_define_variables</code> private function, providing the model with the necessary variables to determine the optimal strategy. The objective function, representing the goal of minimizing the cost of energy, is added to the model in the <code class="language-python">_add_objective_function</code> private function. Constraints that guide the optimization process are meticulously coded in the <code class="language-python">_add_constraints</code> private function, ensuring that the solution adheres to the physical and operational limits of the battery system. Finally, the results of the optimization are extracted and organized into a pandas DataFrame by the <code class="language-python">_extract_results</code> private function, facilitating further analysis and visualization.  For more detail, see my Github page directly.
+</p>
 
   <h3>Methodology</h3>
   <p class="opening-paragraph"><!--Simulation Setup: Describe how input parameters are created, objectives and constraints formulated, and configure your simulation environment.
