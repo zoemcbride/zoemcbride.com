@@ -104,8 +104,12 @@
       </div>
     </div>
   </div>
-    <!--Mathematical Formulation: Present the core equations or logic in a concise manner. Use visual aids like formulas or diagrams if necessary.
-Transition to Code: Explain how the mathematical model translates into your BatteryOptimizationModel() class and the use of PuLP.-->
+  <p class="opening-paragraph">
+    The mathematical equations outlined above are translated into a computational model using PuLP. This translation is encapsulated within the <code class="language-python">BatteryOptimizationModel()</code> class. The class is initialized with the <code class="language-python">__init__</code> function, which sets up the model environment and parameters. The optimization process is executed by the <code class="language-python">run_optimization</code> function, which not only runs the optimization given the load and cost profiles but also checks the status of the optimization to ensure it runs successfully. 
+</p>
+<p class="opening-paragraph">
+    The decision variables are defined in the <code class="language-python">_define_variables</code> private function, providing the model with the necessary variables to determine the optimal strategy. The objective function, representing the goal of minimizing the cost of energy, is added to the model in the <code class="language-python">_add_objective_function</code> private function. Constraints that guide the optimization process are meticulously coded in the <code class="language-python">_add_constraints</code> private function, ensuring that the solution adheres to the physical and operational limits of the battery system. Finally, the results of the optimization are extracted and organized into a pandas DataFrame by the <code class="language-python">_extract_results</code> private function, facilitating further analysis and visualization.  For more detail, see my Github page directly.
+</p>
 
   <h3>Methodology</h3>
   <p class="opening-paragraph"><!--Simulation Setup: Describe how input parameters are created, objectives and constraints formulated, and configure your simulation environment.
