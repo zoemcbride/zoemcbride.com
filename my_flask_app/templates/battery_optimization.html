@@ -100,6 +100,10 @@
     <span class="math-expression">
         ∑ (grid<sub>t</sub> × price<sub>t</sub>) for t from 0 to 24
     </span>
+    <p class="opening-paragraph">In the final formulation, I also added a small penalty for switching, in order to emulate smooth charging and discharging behavior similar to that of a real-world battery:
+    <p><span class="math-expression">
+        switch_cost * ∑ persistent_charge for t from 1 to 24 + switch_cost * ∑ persistent_discharge for t from 1 to 24
+    </span>
     </p>
       </div>
     </div>
@@ -112,8 +116,7 @@
 </p>
 
   <h3>Methodology</h3>
-  <p class="opening-paragraph"><!--Simulation Setup: Describe how input parameters are created, objectives and constraints formulated, and configure your simulation environment.
-Execution Flow: Outline the process from input through the optimization to obtaining the results.-->
+  <p class="opening-paragraph">The first step was creating my sample data. From there, I set out to identify all the decision variables and parameters that would be relevant to the optimization. I established the boundary conditions. Using the decision variables, I could write out the constraints, knowing that there are a number of physical limitations that govern energy systems. After coming up with these mathematically, it was a matter of codifying the process. To start, I created the <code class="language-python">BatteryOptimizationModel()</code> class and established its functions, as stated above, to get organized. As I went through, I found that one of my constraints was non-linear, but I was able to model it with binary decision variables is_charging and is_discharging. I also added persistent charge and discharge variables as well as a switching cost to enable smooth charging/discharging, much like a real-world scenario, as batteries do not perform as well when their behavior is erratic. Once my class was created, I set about running the model and storing the results to a pandas dataframe. I tweaked as needed (such as by adding the switching cost function, and playing with it's value). Finally, I plotted the results. See below!
 
   <h3>Results</h3>
   <p class="opening-paragraph"><!--Visualizations: Include key plots that show the simulation results, such as the storage system's response over 24 hours.
