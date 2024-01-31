@@ -6,7 +6,7 @@
 
   <!-- zoemcbride.com website code -->
 
-  <h1>Simulation of Energy Storage Systems - Mixed Integer Linear Program [WIP]</h1>
+  <h1>Simulation of Energy Storage Systems - Mixed Integer Linear Program</h1>
   <p>
   <h4>January 2024</h4>
   <div class="reading-time"><i>Approximate reading time: {{ reading_time }} minute{{ 's' if reading_time != 1 else '' }}
@@ -52,47 +52,47 @@
   <p class="opening-paragraph">
     <div class="container">
     <div class="section">
-      <p class="title">Decision Variables</p>
+      <p class="title"><h5>Decision Variables</h5></p>
       <div class="content">
         <ul>
-          <li><strong>C<sub>t</sub></strong>: the amount of energy (MWh) charged in hour t</li>
-          <li><strong>D<sub>t</sub></strong>: the amount of energy (MWh) discharged in hour t</li>
+          <li><strong>C<sub>t</sub></strong>: the charge rate (MW) in hour t</li>
+          <li><strong>D<sub>t</sub></strong>: the discharge rate (MW) in hour t</li>
           <li><strong>SOC<sub>t</sub></strong>: the amount of energy (MWh) available in the battery in hour t</li>
-          <li><strong>Grid<sub>t</sub></strong>: the amount of energy (MWh) drawn from the grid in hour t</li>
+          <li><strong>grid<sub>t</sub></strong>: the amount of energy (MWh) drawn from the grid in hour t</li>
         </ul>
       </div>
     </div>
     <div class="section">
-      <p class="title">Parameters</p>
+      <p class="title"><h5>Parameters</h5></p>
       <div class="content">
         <ul>
           <li><strong>ESS_CAPACITY</strong>: the maximum battery capacity in MWh</li>
           <li><strong>ESS_CHARGE_RATE</strong>: the maximum battery charge rate in MW</li>
           <li><strong>ESS_DISCHARGE_RATE</strong>: the maximum battery discharge rate in MW</li>
           <li><strong>RTE</strong>: the round trip efficiency of the battery in percent (%)</li>
-          <li><strong>demand<sub>t</sub></strong><!--or <strong>demand_mw</strong>-->: the demand of the load at hour t (MWh)</li>
+          <li><strong>demand<sub>t</sub></strong><!--or <strong>demand_mw</strong>-->: the demand of the load in hour t (MW)</li>
           <li><strong>price<sub>t</sub></strong><!--or <strong>cost_mw</strong>-->: the cost of the energy at hour t ($/MWh)</li>
         </ul>
       </div>
     </div>
     <div class="section">
-      <p class="title">Constraints</p>
+      <p class="title"><h5>Constraints</h5></p>
       <div class="content">
         <ul>
           <li>0 ≤ SOC<sub>t</sub> ≤ ESS_CAPACITY for t from 0-24</li>
           <li>0 ≤ C<sub>t</sub> ≤ ESS_CHARGE_RATE</li>
           <li>0 ≤ D<sub>t</sub> ≤ ESS_DISCHARGE_RATE</li>
-          <li>D<sub>t</sub> ≤ SOC<sub>t</sub></li>
-          <li>SOC<sub>t</sub> = SOC<sub>t-1</sub> + C<sub>t</sub> - D<sub>t</sub>/RTE (accounting for RTE losses) for t from 0-24</li>
-          <li>D<sub>t</sub> + grid<sub>t</sub> ≥ demand<sub>t</sub></li>
+          <li>D<sub>t</sub>Δt ≤ SOC<sub>t</sub></li>
+          <li>SOC<sub>t</sub> = SOC<sub>t-1</sub> + C<sub>t</sub>Δt- D<sub>t</sub>Δt/RTE (accounting for RTE losses) for t from 0-24</li>
+          <li>D<sub>t</sub>Δt + grid<sub>t</sub> ≥ demand<sub>t</sub>Δt</li>
           <li>SOC<sub>0</sub> = 0 initial boundary condition</li>
-          <li>grid<sub>t</sub> = max(demand<sub>t</sub> - D<sub>t</sub>, 0)</li>
+          <li>grid<sub>t</sub> = max(demand<sub>t</sub>Δt - D<sub>t</sub>Δt, 0)</li>
           <li>D<sub>t</sub> * C<sub>t</sub> = 0 (*Note that I model this differently using binary decision variables, see below)</li>
         </ul>
       </div>
     </div>
     <div class="section">
-      <p class="title">Objective</p>
+      <p class="title"><h5>Objective</h5></p>
       <div class="content">
         <p>
     Minimize the cost of energy:
@@ -103,8 +103,13 @@
     <p class="opening-paragraph">In the final formulation, I also added a small penalty for switching, in order to emulate smooth charging and discharging behavior similar to that of a real-world battery:
     <p><span class="math-expression">
         switch_cost * ∑ persistent_charge<sub>t</sub> for t from 1 to 24 + switch_cost * ∑ persistent_discharge<sub>t</sub> for t from 1 to 24
-    </span>
+    </span></p>
+    Subject to:
     </p>
+    <p><span class="math-expression">
+      <li>persistent_charge<sub>t</sub> = |C<sub>t</sub> - C<sub>t-1</sub>|</li>
+      <li>persistent_discharge<sub>t</sub> = |D<sub>t</sub> - D<sub>t-1</sub>|</li>
+    </span></p>
       </div>
     </div>
   </div>
@@ -112,7 +117,9 @@
     The mathematical equations outlined above are translated into a computational model using PuLP. This translation is encapsulated within the <code class="language-python">BatteryOptimizationModel()</code> class. The class is initialized with the <code class="language-python">__init__</code> function, which sets up the model environment and parameters. The optimization process is executed by the <code class="language-python">run_optimization</code> function, which not only runs the optimization given the load and cost profiles but also checks the status of the optimization to ensure it runs successfully. 
 </p>
 <p class="opening-paragraph">
-    The decision variables are defined in the <code class="language-python">_define_variables</code> private function, providing the model with the necessary variables to determine the optimal strategy. The objective function, representing the goal of minimizing the cost of energy, is added to the model in the <code class="language-python">_add_objective_function</code> private function. Constraints that guide the optimization process are meticulously coded in the <code class="language-python">_add_constraints</code> private function, ensuring that the solution adheres to the physical and operational limits of the battery system. Finally, the results of the optimization are extracted and organized into a pandas DataFrame by the <code class="language-python">_extract_results</code> private function, facilitating further analysis and visualization.  For more detail, see my Github page directly.
+    The decision variables are defined in the <code class="language-python">_define_variables</code> private function, providing the model with the necessary variables to determine the optimal strategy. The objective function, representing the goal of minimizing the cost of energy, is added to the model in the <code class="language-python">_add_objective_function</code> private function. Constraints that guide the optimization process are meticulously coded in the <code class="language-python">_add_constraints</code> private function, ensuring that the solution adheres to the physical and operational limits of the battery system. Finally, the results of the optimization are extracted and organized into a pandas DataFrame by the <code class="language-python">_extract_results</code> private function, facilitating further analysis and visualization.  
+</p>
+<p class="opening-paragraph">For this to work, some clever tricks need to be implemented. One such trick to model D<sub>t</sub> * C<sub>t</sub> = 0 is to instead add binary variables is_charging and is_discharging, and add the constraint that is_charging<sub>t</sub> + is_discharging<sub>t</sub> ≤ 1, which ensures that the battery cannot charge and discharge at the same time. Another such example, persistent_charge<sub>t</sub> = |C<sub>t</sub> - C<sub>t-1</sub>| is non linear as written, due to the absolute value function. So instead, I broke it out into two linear constraints to model the absolute value operation within a linear modeling framework: both persistent_charge<sub>t</sub> ≥ C<sub>t</sub> - C<sub>t-1</sub> <i>and</i> persistent_charge<sub>t</sub> ≥ C<sub>t-1</sub> - C<sub>t</sub> must be true. The persistent_discharge variable is also modelled in this way. For more detail, see my Github page directly.
 </p>
 
   <h3>Methodology</h3>
@@ -131,8 +138,8 @@
         <p class="opening-paragraph">The above graphs show the battery charging smoothly during the off-peak period, holding during the first partial-peak period, and then discharging smoothly through the on-peak and following partial-peak period. The battery discharges more aggressively during the on-peak period, as expected, but still continues to discharge what energy it has left for the final partial-peak period. This behavior seems both realistic and impressive! It is cool to see that my simulated ESS can save the building over 5% of its energy bill in one day. Obviously, this is a small example, but I would be curious to see how it would perform over longer periods of time. </p>
 
 
-  <!--<h3>Conclusions</h3>-->
-  <p class="opening-paragraph"><!--Summary of Findings: Recap the main outcomes of your simulation and their significance.
+  <h3>Conclusions</h3>
+  <p class="opening-paragraph">To pull it all together, the intention with this project was to refine my skills of battery energy storage simulation, particularly using the PuLP package in python. It was a good exercise in getting the process honed out, as taking a mathematical set of equations and translating them into code is not always as obvious as first appears. Additionally, putting my code into a class with multiple, bite-sized private functions helped keep me organized. Real-world battery systems have a unique behavior that can be hard to capture mathematically, but I feel confident in my approach and that it provides a realistic solution. Overall, it is exciting to see how optimization concepts like these can be used to save behind-the-meter electricity customers money, as well as reduce spikey grid demands. <!--Summary of Findings: Recap the main outcomes of your simulation and their significance.
 Future Work: Discuss potential improvements, additional features, or other research questions that could be explored based on your work.-->
 
 <script data-goatcounter="https://zoemcbride.goatcounter.com/count"
