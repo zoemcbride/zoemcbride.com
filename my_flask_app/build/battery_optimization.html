@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Zoë McBride's Website</title>
+
+  <!-- Bootstrap -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- Local bootstrap.min.css files here (outdated)
+      <link href="static/css/bootstrap.min.css" rel="stylesheet"> -->
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      <!-- load in Font Awesome icons -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+      <!-- Specify font type -->
+      <font face="Inconsolata" size="3">
+
+
+       <!-- Custom styles for this template -->
+       <link href="static/css/starter-template.css" rel="stylesheet">
+
+       
+
+       <!-- profile-pic-1 corresponds to 2019profilepic.JPG, profile-pic-2 corresponds to IMG_5385.jpg-->
+       <style type="text/css">  
+         /* Default styling for profile picture on larger screens, aligns image to the left */
+         #profile-pic-1 {
+          height: auto;
+          width: 100%;
+          max-width: 300px; 
+          max-height: 300px;
+          display: block;
+          margin-left: 5px;
+          margin-right: auto;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+
+        #profile-pic-2 {
+          height: auto;
+          width: 100%;
+          max-width: 403px; 
+          max-height: 302px;
+          display: block;
+          margin-left: 5px;
+          margin-right: auto;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+          #profile-pic-1 {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          #profile-pic-2 {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      </style>
+
+      <!--PrismJS CSS and JS files for inserting pretty code -->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>-->
+
+          <!--Highlight.js CSS and JS files -->  
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+
+       <!-- Styles ive added, such as a sticky footer-->
+       <link rel="stylesheet" href="static/css/styles.css">   
+
+        </head>
+
+        <!-- Initialize body & Initialize Highlight.js -->
+        <body onload="hljs.highlightAll();">
+  
+            <!-- Your navbar content goes here -->
+            <nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+              <div class="container">
+                <a class="navbar-brand" href="#">Zoë McBride</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="side_projects.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Technical Projects 👩‍💻
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="running_analysis_blog.html">Running Analysis Using my Strava Data</a></li>
+                      <li><a class="dropdown-item" href="strava_analysis_howto.html">How To Analyze <i>Your</i> Strava Data</a></li>
+                      <li><a class="dropdown-item" href="energy_analysis_blog.html">Time-Series Forecasting of the Spanish Energy Grid</a></li>
+                      <li><a class="dropdown-item" href="battery_optimization.html">Simulation of Energy Storage Systems - Mixed Integer Linear Program</a></li>
+                      <li><hr class="dropdown-divider"></li>  
+                      <li><a class="dropdown-item" href="side_projects.html">All Projects</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="side_projects.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Off the Clock ⏰
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="restaurant_recommendations.html">Restaurant Recommendations</a></li>
+                      <li><a class="dropdown-item" href="book_reviews.html">Book Reviews</a></li>
+                    </ul>
+                  </li>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="static/resume/Resume-ZoeMcBride.pdf">Resume</a>
+                    </li>
+                  </li>
+                </ul>
+<!-- The following creates a search bar. <form class="d-flex" role="search">
+<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<button class="btn btn-outline-success" type="submit">Search</button>
+</form>-->
+</div>
+</div>
+
+
+
+</nav>
+
+
+<!-- Your header content goes here -->
+<header>
+
+</header>
+
+<main>
+  <div class="container" style="padding-top: 40px">
+    
+
+<body>
+
+  <!-- zoemcbride.com website code -->
+
+  <h1>Simulation of Energy Storage Systems - Mixed Integer Linear Program</h1>
+  <p>
+  <h4>January 2024</h4>
+  <div class="reading-time"><i>Approximate reading time: 6 minutes
+  </div></i></p>
+
+
+  Follow along on <a href="https://github.com/zoemcbride/energy-data-lab">my Github repo</a>!
+  <p><p><p>
+
+  <h3>Intro & Motivation</h3>
+  <p class="opening-paragraph">My goal with this exercise was to deepen my understanding and refine my skills in simulating and optimizing battery energy storage systems. Particularly, I wanted to explore the PuLP python package and use it to develop a robust mixed integer linear program. My objective was to create a simulation for a battery energy storage system that is working behind-the-meter with a building load and responds to grid dynamic pricing over a 24 hour period. In this, I hope to demonstrate my understanding of mixed integer linear programs and the basic physics and engineering principles related to energy systems.
+
+  <h3>Background</h3>
+  <p class="opening-paragraph">Linear programming is a mathematical method used to find the best possible outcome, like the maximum profit or the lowest cost, for systems whos requirements are represented by linear relationships. In this case, I am minimizing the cost of energy for a building across a 24 hour period. When some of the variables are not continuous, but rather are binary, it adds a layer of complexity to the model known as mixed integer linear programming (MILP). The PuLP python package allows us to model these binary constraints, which make the problem non-convex and also potentially significantly more challenging to solve computationally. 
+
+  <p class="opening-paragraph">In the world of energy storage, MILP becomes particularly powerful, because energy systems operate in a world that has both continuous variables like facility load and also binary variables like the decision to charge or discharge the battery at a given point in time. Typically, these behind-the-meter battery systems have to optimize based on energy prices, demand charges, and load requirements, and MILP allows us to simulate these systems in a way that mirrors real-life decisions. 
+
+
+  <h3>Data Used</h3> 
+  <p class="opening-paragraph">To set up this simulation, I first created sample building load data and then I set up the daily cost profile. For the building load data, I assumed that the building follows a typical commercial building load shape, with low demand in the late evening and early morning, but high demand from 12 PM - 5 PM. You can see the load curve here:
+
+    <img src="static/images/load_data_daily.png" alt="Sample Load Data for One Day" class="center" style="
+        max-width: 100%;
+        max-height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+        display: block;
+        ">
+      <p class="opening-paragraph">Then, I created a sample tariff which, though not based on an actual tariff, is similar to tariffs you might find in California and other US states. In this tariff, the peak period, when the costs are greatest, is from 4 PM - 9 PM, and the partial peak period is three hours before and three hours after. All other hours are considered off peak hours. The demand costs for this tariff can be seen here: 
+        <img src="static/images/demand_costs_daily.png" alt="Sample Demand Costs for One Day" class="center" style="
+        max-width: 100%;
+        max-height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+        display: block;
+        ">
+      <p class="opening-paragraph">You'll notice that the on-peak period for the tariff occurs at a time when the building still has a relatively high demand load. The battery system will need to determine a good time to charge and then discharge based on these two profiles, subject to a number of physical constraints.  
+
+
+  <h3>Formulation</h3>
+  <p class="opening-paragraph">
+    <div class="container">
+    <div class="section">
+      <p class="title"><h5>Decision Variables</h5></p>
+      <div class="content">
+        <ul>
+          <li><strong>C<sub>t</sub></strong>: the charge rate (MW) in hour t</li>
+          <li><strong>D<sub>t</sub></strong>: the discharge rate (MW) in hour t</li>
+          <li><strong>SOC<sub>t</sub></strong>: the amount of energy (MWh) available in the battery in hour t</li>
+          <li><strong>grid<sub>t</sub></strong>: the amount of energy (MWh) drawn from the grid in hour t</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title"><h5>Parameters</h5></p>
+      <div class="content">
+        <ul>
+          <li><strong>ESS_CAPACITY</strong>: the maximum battery capacity in MWh</li>
+          <li><strong>ESS_CHARGE_RATE</strong>: the maximum battery charge rate in MW</li>
+          <li><strong>ESS_DISCHARGE_RATE</strong>: the maximum battery discharge rate in MW</li>
+          <li><strong>RTE</strong>: the round trip efficiency of the battery in percent (%)</li>
+          <li><strong>demand<sub>t</sub></strong><!--or <strong>demand_mw</strong>-->: the demand of the load in hour t (MW)</li>
+          <li><strong>price<sub>t</sub></strong><!--or <strong>cost_mw</strong>-->: the cost of the energy at hour t ($/MWh)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title"><h5>Constraints</h5></p>
+      <div class="content">
+        <ul>
+          <li>0 ≤ SOC<sub>t</sub> ≤ ESS_CAPACITY for t from 0-24</li>
+          <li>0 ≤ C<sub>t</sub> ≤ ESS_CHARGE_RATE</li>
+          <li>0 ≤ D<sub>t</sub> ≤ ESS_DISCHARGE_RATE</li>
+          <li>D<sub>t</sub>Δt ≤ SOC<sub>t</sub></li>
+          <li>SOC<sub>t</sub> = SOC<sub>t-1</sub> + C<sub>t</sub>Δt- D<sub>t</sub>Δt/RTE (accounting for RTE losses) for t from 0-24</li>
+          <li>D<sub>t</sub>Δt + grid<sub>t</sub> ≥ demand<sub>t</sub>Δt</li>
+          <li>SOC<sub>0</sub> = 0 initial boundary condition</li>
+          <li>grid<sub>t</sub> = max(demand<sub>t</sub>Δt - D<sub>t</sub>Δt, 0)</li>
+          <li>D<sub>t</sub> * C<sub>t</sub> = 0 (*Note that I model this differently using binary decision variables, see below)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <p class="title"><h5>Objective</h5></p>
+      <div class="content">
+        <p>
+    Minimize the cost of energy:
+    <span class="math-function">min</span>
+    <span class="math-expression">
+        ∑ (grid<sub>t</sub> × price<sub>t</sub>) for t from 0 to 24
+    </span>
+    <p class="opening-paragraph">In the final formulation, I also added a small penalty for switching, in order to emulate smooth charging and discharging behavior similar to that of a real-world battery:
+    <p><span class="math-expression">
+        switch_cost * ∑ persistent_charge<sub>t</sub> for t from 1 to 24 + switch_cost * ∑ persistent_discharge<sub>t</sub> for t from 1 to 24
+    </span></p>
+    Subject to:
+    </p>
+    <p><span class="math-expression">
+      <li>persistent_charge<sub>t</sub> = |C<sub>t</sub> - C<sub>t-1</sub>|</li>
+      <li>persistent_discharge<sub>t</sub> = |D<sub>t</sub> - D<sub>t-1</sub>|</li>
+    </span></p>
+      </div>
+    </div>
+  </div>
+  <p class="opening-paragraph">
+    The mathematical equations outlined above are translated into a computational model using PuLP. This translation is encapsulated within the <code class="language-python">BatteryOptimizationModel()</code> class. The class is initialized with the <code class="language-python">__init__</code> function, which sets up the model environment and parameters. The optimization process is executed by the <code class="language-python">run_optimization</code> function, which not only runs the optimization given the load and cost profiles but also checks the status of the optimization to ensure it runs successfully. 
+</p>
+<p class="opening-paragraph">
+    The decision variables are defined in the <code class="language-python">_define_variables</code> private function, providing the model with the necessary variables to determine the optimal strategy. The objective function, representing the goal of minimizing the cost of energy, is added to the model in the <code class="language-python">_add_objective_function</code> private function. Constraints that guide the optimization process are meticulously coded in the <code class="language-python">_add_constraints</code> private function, ensuring that the solution adheres to the physical and operational limits of the battery system. Finally, the results of the optimization are extracted and organized into a pandas DataFrame by the <code class="language-python">_extract_results</code> private function, facilitating further analysis and visualization.  
+</p>
+<p class="opening-paragraph">For this to work, some clever tricks need to be implemented. One such trick to model D<sub>t</sub> * C<sub>t</sub> = 0 is to instead add binary variables is_charging and is_discharging, and add the constraint that is_charging<sub>t</sub> + is_discharging<sub>t</sub> ≤ 1, which ensures that the battery cannot charge and discharge at the same time. Another such example, persistent_charge<sub>t</sub> = |C<sub>t</sub> - C<sub>t-1</sub>| is non linear as written, due to the absolute value function. So instead, I broke it out into two linear constraints to model the absolute value operation within a linear modeling framework: both persistent_charge<sub>t</sub> ≥ C<sub>t</sub> - C<sub>t-1</sub> <i>and</i> persistent_charge<sub>t</sub> ≥ C<sub>t-1</sub> - C<sub>t</sub> must be true. The persistent_discharge variable is also modelled in this way. For more detail, see my Github page directly.
+</p>
+
+  <h3>Methodology</h3>
+  <p class="opening-paragraph">The first step was creating my sample data. From there, I set out to identify all the decision variables and parameters that would be relevant to the optimization. I established the boundary conditions. Using the decision variables, I could write out the constraints, knowing that there are a number of physical limitations that govern energy systems. After coming up with these mathematically, it was a matter of codifying the process. To start, I created the <code class="language-python">BatteryOptimizationModel()</code> class and established its functions, as stated above, to get organized. As I went through, I found that one of my constraints was non-linear, but I was able to model it with binary decision variables is_charging and is_discharging. I also added persistent charge and discharge variables as well as a switching cost to enable smooth charging/discharging, much like a real-world scenario, as batteries do not perform as well when their behavior is erratic. Once my class was created, I set about running the model and storing the results to a pandas dataframe. I tweaked as needed (such as by adding the switching cost function, and playing with it's value). Finally, I plotted the results. See below!
+
+  <h3>Results</h3>
+  <img src="static/images/ess_simulation_results.png" alt="ESS Simulation Results" class="center" style="
+        max-width: 100%;
+        max-height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+        display: block;
+        ">
+        <p class="opening-paragraph">The baseline cost was $105.40 and the total post-energy storage system cost was $99.75. Thus in 24 hours the battery saved the building $5.65, or 5.36% of it's energy costs.</p>
+        <p class="opening-paragraph">The above graphs show the battery charging smoothly during the off-peak period, holding during the first partial-peak period, and then discharging smoothly through the on-peak and following partial-peak period. The battery discharges more aggressively during the on-peak period, as expected, but still continues to discharge what energy it has left for the final partial-peak period. This behavior seems both realistic and impressive! It is cool to see that my simulated ESS can save the building over 5% of its energy bill in one day. Obviously, this is a small example, but I would be curious to see how it would perform over longer periods of time. </p>
+
+
+  <h3>Conclusions</h3>
+  <p class="opening-paragraph">To pull it all together, the intention with this project was to refine my skills of battery energy storage simulation, particularly using the PuLP package in python. It was a good exercise in getting the process honed out, as taking a mathematical set of equations and translating them into code is not always as obvious as first appears. Additionally, putting my code into a class with multiple, bite-sized private functions helped keep me organized. Real-world battery systems have a unique behavior that can be hard to capture mathematically, but I feel confident in my approach and that it provides a realistic solution. Overall, it is exciting to see how optimization concepts like these can be used to save behind-the-meter electricity customers money, as well as reduce spikey grid demands. <!--Summary of Findings: Recap the main outcomes of your simulation and their significance.
+Future Work: Discuss potential improvements, additional features, or other research questions that could be explored based on your work.-->
+
+<script data-goatcounter="https://zoemcbride.goatcounter.com/count"
+async src="//gc.zgo.at/count.js"></script>
+
+
+  </div>
+
+</main>
+
+<footer class="footer py-3" style="background-color: #f7f7f7;">
+  <div class="container d-flex justify-content-center align-items-center flex-column text-center">
+    
+    <!-- Social Media Links -->
+    <div class="d-flex justify-content-center align-items-center mb-2">
+        <a href="https://www.linkedin.com/in/zoecamillemcbride/" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="mailto:zoe.camille7@gmail.com" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+        <a href="https://github.com/zoemcbride" target="_blank" class="mx-2 icon-link" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+    </div>
+
+    <!-- Made with Technologies -->
+    <small class="text-muted">Crafted by Zoë with Flask, GitHub Pages, Bootstrap & more</small>
+    <small class="text-muted">© 2023 Zoë Camille McBride</small>
+  </div>
+</footer>
+
+<!-- Additional CSS -->
+<style>
+    .footer .icon-link:hover {
+        color: #007BFF;  /* 007BFF Blue color on hover */
+    }
+
+    .footer .icon-link {
+        transition: color 0.2s, transform 0.2s;
+        color: #777;  /* 007BFF Default blue color of icons */
+    }
+</style>
+
+
+
+
+
+ <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+
+  </html>
